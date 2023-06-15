@@ -2,8 +2,10 @@
     "name": "anton/retira-senha",
     "autoload": {
         "psr-4": {
-            "Anton\\RetiraSenha\\": "src/"
+            "App\\": "App/"
         }
     },
-    "require": {}
+    "require": {
+        "coffeecode/datalayer": "2.0.*"
+    }
 }
