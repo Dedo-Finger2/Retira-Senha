@@ -9,6 +9,6 @@
         ]
     },
     "require": {
-        "coffeecode/datalayer": "2.0.*"
+        "coffeecode/datalayer": "^2.0"
     }
 }
