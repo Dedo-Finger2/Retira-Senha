@@ -1,0 +1,9 @@
+{
+    "name": "anton/retira-senha",
+    "autoload": {
+        "psr-4": {
+            "Anton\\RetiraSenha\\": "src/"
+        }
+    },
+    "require": {}
+}
