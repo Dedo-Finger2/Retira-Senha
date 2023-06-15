@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitb507ac8549f0adadca7bf2bfece9b43c
 {
+    public static $files = array (
+        'f6e03b20c4db06c7882315f46279726c' => __DIR__ . '/../..' . '/App/Config/conexaoPDO.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'A' => 
         array (
