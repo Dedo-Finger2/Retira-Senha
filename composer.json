@@ -1,5 +1,26 @@
 {
     "name": "anton/retira-senha",
+    "description": "Interface de retirada de senhas integrada com banco de dados.",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Antonio Mauricio",
+            "email": "antonio.neto12@ba.estudante.senai.br"
+        },
+        {
+            "name": "Joice Almeida",
+            "email": "joice.almeida@ba.estudante.senai.br"
+        },
+        {
+            "name": "Leone Govea",
+            "email": "leone.almeida@ba.estudante.senai.br"
+        },
+        {
+            "name": "Wendson Ferreira",
+            "email": "wendson.silva@ba.estudante.senai.br"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "App\\": "App/"
