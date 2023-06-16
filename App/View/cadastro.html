@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1>Cadastro de usuários</h1>
+    <!-- "Aqui vai ficar o formulário para cadastro de novos usuáros" - Greg -->
+    <form action="#" method="post">
+
+        <label>Nome</label> <!-- "Nome do input" - Greg -->
+        <input type="text" name="nome"> <!-- "Input em si" - Greg -->
+        
+        <label>Email</label>
+        <input type="email" name="email">
+
+        <label>Senha</label>
+        <input type="password" name="senha">
+
+        <!-- 
+            "Vai ser interessante esse input ser customizado, aceitar apenas um valor parecido com RG
+            Tipo assim: 12.345.678-9
+            Esse input deve colocar os pontos e hífen automaticamente, ou apenas recusar eles e aceitar apenas os números" - Greg
+        -->
+        <label>RG</label>
+        <input type="text" name="rg">
+        
+        <a href="login.html">Já possui conta?</a>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
