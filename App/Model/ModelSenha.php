@@ -3,7 +3,7 @@
 namespace App\Model; // "Namespace da classe (localização dela)" - Greg
 use CoffeeCode\DataLayer\DataLayer; // "Chamando a classe Datalayer para servir como herança para a classe Senha" - Greg
 
-class Senha extends DataLayer // "Herdando funcionalidades da classe Datalayer" - Greg
+class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datalayer" - Greg
 {
      /**
      * Construtor base, toda classe vai ter um igual
@@ -20,10 +20,13 @@ class Senha extends DataLayer // "Herdando funcionalidades da classe Datalayer" 
      * Esse método será responsável por retornar uma lista com as senhas filtradas,
      * as senhas filtradas vão depender do que o usuário escolheu na tela de filtragem
      * de senhas.
-     * @param array $data - Escolhas feitas pelo usuário nat ela de Filtragem
+     * @param string $nome_curso - Nome do curso selecionado pelo usuário
+     * @param string $turno - Turno escolhido pelo usuário
+     * @param string $faixa_etaria - Faixa etária escohida pelo usuário
+     * @param array $dias_aula - Dias de aula marcados pelo usuário
      * @return array - Lista com as senhas filtradas
      */
-    public function listFilteredPasswords($data): array
+    public function listFilteredPasswords($nome_curso, $turno, $faixa_etaria, $dias_aula): array
     {
         # Código aqui...
     }

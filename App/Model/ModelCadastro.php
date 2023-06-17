@@ -3,7 +3,7 @@
 namespace App\Model; // "Namespace da classe (localização dela)" - Greg
 use CoffeeCode\DataLayer\DataLayer; // "Chamando a classe Datalayer para servir como herança para a classe Cadastro" - Greg
 
-class Cadastro extends DataLayer // "Herdando funcionalidades da classe Datalayer" - Greg
+class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Datalayer" - Greg
 {
     /**
      * Construtor base, toda classe vai ter um igual
@@ -18,9 +18,12 @@ class Cadastro extends DataLayer // "Herdando funcionalidades da classe Datalaye
 
     /**
      * Esse método é responsável por registrar um novo usuário no sistema.
-     * @param array $data - Um array que será recebido via POST de um formulário
+     * @param array $nome - Nome do usuário
+     * @param string $email - Email do usuário
+     * @param string $senha - Senha do usuário
+     * @param string $rg - RG do usuário
      */
-    public function registerUser($data): void
+    public function registerUser($nome, $email, $senha, $rg): void
     {
         # Código aqui...
     }
@@ -28,9 +31,10 @@ class Cadastro extends DataLayer // "Herdando funcionalidades da classe Datalaye
     /**
      * Esse métdo é responsável por logar um usuário já cadastrado no sistema,
      * para isso pode ser feito validações aqui nesse classe.
-     * @param array $data - Um array com as informações fornecidas pelo usuário
+     * @param string $nome - Nome do usuário que está tentando logar
+     * @param string $rg - RG do usuário que está tentando logar
      */
-    public function loginUser(): void
+    public function loginUser($nome, $rg): void
     {
         # Código aqui...
     }
@@ -47,10 +51,13 @@ class Cadastro extends DataLayer // "Herdando funcionalidades da classe Datalaye
     /**
      * Esse método é responsável por atualizar credencias de um usuário já cadastrado
      * no sistema.
-     * @param array $newData - Novos dados do usuário
+     * @param array $nome - Novo nome do usuário
+     * @param string $email - Novo email do usuário
+     * @param string $senha - Nova senha do usuário
+     * @param string $rg - Novo RG do usuário
      * @param int $idUsuario - ID do usuário que vai ser editado
      */
-    public function updateUser($newData, $idUsuario): void
+    public function updateUser($nome, $email, $senha, $rg, $idUsuario): void
     {
         # Código aqui...
     }
