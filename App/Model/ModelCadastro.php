@@ -13,19 +13,28 @@ class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Dat
      */
     public function __construct()
     {
-        parent::__construct("", [""], "", false);
+        parent::__construct("cadastro", [], "cod_cadastro", false);
     }
 
     /**
-     * Esse método é responsável por registrar um novo usuário no sistema.
-     * @param array $nome - Nome do usuário
+     * Esse método é responsável por registrar um novo usuário no sistema, deve ser verificado se o usuário já existe
+     * se já existir o método deve exibir uma mensagem ao usuário
+     * @param string $nome - Nome do usuário
      * @param string $email - Email do usuário
      * @param string $senha - Senha do usuário
      * @param string $rg - RG do usuário
      */
-    public function registerUser($nome, $email, $senha, $rg): void
+    public function registerUser($nome, $email, $senha, $rg): ModelCadastro
     {
-        # Código aqui...
+        /**
+         * Atribuindo valores ás colunas da tabela Cadastro
+         */
+        $this->nome = $nome;
+        $this->email = $email;
+        $this->senha = $senha;
+        $this->rg = $rg;
+
+        return $this; // Retornando o que foi feito
     }
     
     /**
