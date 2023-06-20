@@ -9,7 +9,7 @@
 <body>
     <h1>Cadastro de usuários</h1>
     <!-- "Aqui vai ficar o formulário para cadastro de novos usuáros" - Greg -->
-    <form action="#" method="post">
+    <form action="../Controller/cadastroHandler.php" method="post">
 
         <label>Nome</label> <!-- "Nome do input" - Greg -->
         <input type="text" name="nome"> <!-- "Input em si" - Greg -->
@@ -26,11 +26,39 @@
             Esse input deve colocar os pontos e hífen automaticamente, ou apenas recusar eles e aceitar apenas os números" - Greg
         -->
         <label>RG</label>
-        <input type="text" name="rg">
+        <input type="text" id="rg" name="rg" pattern="\d{2}\.\d{3}\.\d{3}-\d" maxlength="12" required>
         
         <a href="login.html">Já possui conta?</a>
 
         <button type="submit">Cadastrar</button>
     </form>
+
+    <!-- Script que auto completa o RG do usuário com pontos e hífen -->
+    <script>
+        const rgInput = document.getElementById('rg');
+    
+        function formatarRG(valor) {
+            
+            // Remove tudo o que não é dígito
+            valor = valor.replace(/\D/g, '');
+    
+            // Adiciona os pontos e hífen
+            valor = valor.replace(/^(\d{2})(\d{3})(\d{3})(\d{1})$/, '$1.$2.$3-$4');
+    
+            // Retorna o valor formatado
+            return valor;
+        }
+    
+        rgInput.addEventListener('input', function (event) {
+            // Obtém o valor atual do campo
+            let valorAtual = event.target.value;
+    
+            // Formata o valor do campo
+            valorAtual = formatarRG(valorAtual);
+    
+            // Define o valor formatado no campo
+            event.target.value = valorAtual;
+        });
+    </script>
 </body>
 </html>

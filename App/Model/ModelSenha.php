@@ -13,7 +13,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      */
     public function __construct()
     {
-        parent::__construct("", [""], "", false);
+        parent::__construct("senha", [], "cod_senha", false);
     }
 
     /**
