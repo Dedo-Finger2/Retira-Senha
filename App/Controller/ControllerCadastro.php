@@ -45,4 +45,61 @@ class ControllerCadastro
          */
         return $newUsuario;
     }
+
+    /**
+     * Executando verificações de segurança e então dando permissão ao usuário pra entrar no sistema
+     * Aqui será usado sessões
+     * @param array $data - Array vindo do formulário
+     */
+    public function login($data): ControllerCadastro
+    {
+        /**
+         * Logando o usuário com as credenciais vindas do formulário de login
+         */
+        $usuario = (new ModelCadastro())->loginUser($data['nome'], $data['rg']);
+
+        /**
+         * Se esse login der certo, então inicie a sessão e armazene o RG do sujeito na sesão atual dele
+         * e então mande ele pra tela de home
+         */
+        if ($usuario) {
+            session_start();
+            $_SESSION['rg'] = $data['rg'];
+            header("Location: ../View/index.php");
+            return $this;
+        }
+
+        return $this;
+    }
+
+    /**
+     * Executando verificações de segurança e então encerrando a sessão do usuário
+     */
+    public function logOff(): ControllerCadastro
+    {
+        /**
+         * Iniciando a sessão
+         */
+        session_start();
+        /**
+         * Se existir um rg na sessão atual, então significa que o usuário está sim logado
+         */
+        if ($_SESSION['rg']) {
+            /**
+             * Tenta encerrar a sessão do usuário com o método logOff
+             */
+            try {
+                $modelLogOff = (new ModelCadastro())->logOff();
+                /**
+                 * Depois de tirar a sessão do usuário, o sistema vai mandar ele pra página de login
+                 * dirname($_SERVER['PHP_SELF]) - Isso pega a pasta pai do arquivo atual, é um complemento pra conseguir acessar a página de login
+                 * de qualquer outro lugar do sistema
+                 */
+                header('Location: ' . dirname($_SERVER['PHP_SELF']) . '/../View/login.php');
+            } catch (Exception $e) {
+                echo "[ERRO]" . $e->getMessage();
+            }
+        }
+        return $this;
+    }
 }
