@@ -39,13 +39,34 @@ class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Dat
     
     /**
      * Esse métdo é responsável por logar um usuário já cadastrado no sistema,
-     * para isso pode ser feito validações aqui nesse classe.
+     * para isso pode ser feito validações aqui nesse classe tentando ver se o RG da pessoa
+     * está cadastrado no sistema, se sim, então cria-se uma sessão com o rg da pessoa
      * @param string $nome - Nome do usuário que está tentando logar
      * @param string $rg - RG do usuário que está tentando logar
      */
-    public function loginUser($nome, $rg): void
+    public function loginUser($nome, $rg)
     {
-        # Código aqui...
+        /**
+         * Cria um novo objeto ModelCadastro
+         * E usa o método herdado do DataLayer find()
+         * o método tenta buscar no banco de dados o RG especificado, que nesse caso é o do usuário
+         * fetch(true) retorna todos os resultados dentro de um array
+         */
+        $verifyRg = (new ModelCadastro())->find("rg = '{$rg}'")->fetch(true);
+        $verifyNome = (new ModelCadastro())->find("nome = '{$nome}'")->fetch(true);
+
+        /**
+         * Se as consultas acima der certo, então o usuário tem o rg cadastrado e o nome bate com o rg!
+         * Se sim então retorne TRUE
+         */
+        if ($verifyRg && $verifyNome) {
+            return true;
+        }
+        
+        /**
+         * Se não, retorne FALSE
+         */
+        return false;
     }
 
     /**
@@ -78,6 +99,21 @@ class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Dat
     public function deleteUser($idUsuario): void
     {
         # Código aqui...
+    }
+
+    /**
+     * Esse método é responsável por deslogar o usuário do sistema, apenas isso
+     */
+    public function logOff(): ModelCadastro
+    {
+        /**
+         * Inicia a sessão
+         * pra então destruir ela kk
+         * e acabou! :D
+         */
+        session_start();
+        session_destroy();
+        return $this;
     }
 }
 

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <?php require_once("navbar.php"); ?>
 </head>
 <body>
     <h1>Cadastro de usuários</h1>
@@ -28,7 +29,7 @@
         <label>RG</label>
         <input type="text" id="rg" name="rg" pattern="\d{2}\.\d{3}\.\d{3}-\d" maxlength="12" required>
         
-        <a href="login.html">Já possui conta?</a>
+        <a href="login.php">Já possui conta?</a>
 
         <button type="submit">Cadastrar</button>
     </form>
@@ -39,18 +40,18 @@
     
         function formatarRG(valor) {
             
-            // Remove tudo o que não é dígito
+            // Remove tudo o que não é dígito/número
             valor = valor.replace(/\D/g, '');
     
-            // Adiciona os pontos e hífen
+            // Adiciona os pontos e hífen automaticamente
             valor = valor.replace(/^(\d{2})(\d{3})(\d{3})(\d{1})$/, '$1.$2.$3-$4');
     
-            // Retorna o valor formatado
+            // Retorna o valor formatado com os valores, pontos e hífen
             return valor;
         }
     
         rgInput.addEventListener('input', function (event) {
-            // Obtém o valor atual do campo
+            // Obtém o valor atual do input de RG
             let valorAtual = event.target.value;
     
             // Formata o valor do campo
