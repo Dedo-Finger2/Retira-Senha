@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');  /* Importa fontes do google*/
+
+/*(classe-comum: classes criadas por mim / classe-bootstrap: classes do bootstrap com estilos já definidos)*/
+
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+ }
+
+ #bem-vindo {
+    font-size: 50px; /* Tamanho desejado para o h1 */
+  }
+  
+  .font-weight-light {
+    font-size: 20px; /* Tamanho desejado para o p */
+  }
+  
+
+.card {
+    box-shadow: 0px 4px 20px 0 rgba(0, 0, 0, 0.2);  /*(classe-bootstrap) Div card adiciona uma sombra*/
+} 
+
+.tittle{
+    color: #fdd700;  /*(Classe comum) altera os titulos para amarelo */
+}
+
+.tittle-login{
+    color: #34c05c;  /*(Classe comum) altera os titulos para verde */
+}
+
+.container{
+    display: flex;  /* (classe-bootstrap) Mantem o formulario e a imagem alinhados para não descerem*/
+    margin: 3%;     /* Mantem o formulario e a imagem um pouco abaixo da tela */                  
+}
+
+.left{
+    width: 42%;  /*(Classe comum) div criada para separar o formulario da imagem, apenas altera o tamanho do que tem dentro dela*/
+}
+
+.right{
+  margin-left: auto; /*(Classe comum) div criada para manter o formulario mais a direita */
+  margin-right: -100px;
+}
+
+
+#imagem-login {
+    margin-top: -30px; /* Defina uma margem superior negativa para mover a imagem para cima */
+    width: 400px; /* Defina a largura desejada */
+    height: auto; /* Mantém a proporção de altura automática */
+  }
