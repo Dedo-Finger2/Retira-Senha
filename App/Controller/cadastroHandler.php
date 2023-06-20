@@ -17,7 +17,7 @@ switch (intval($acao)) {
      */
     case 4:
         $newUser = (new ControllerCadastro())->register($_POST);
-        header("Location: ../view/login.html");
+        header("Location: ../view/login.php");
         break;
     /**
      * Login
