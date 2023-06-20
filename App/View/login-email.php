@@ -32,7 +32,7 @@
     
         <a href="cadastro.php">Não possui conta?</a><br><br>
         <!--
-            "Acho que sei como fazer isso funcionar, não garanto nada e nem vou dar atenção a isso por enquanto" - Greg
+            "Acho que sei como fazer isso funcionar, não garanto nada e nem vou dar atenção a isso por FVSANDSNVNDMV" - Greg
         -->
         <a href="login.php">Aceso com RG</a> 
     </form>
