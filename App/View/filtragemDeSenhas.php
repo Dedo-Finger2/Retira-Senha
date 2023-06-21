@@ -6,10 +6,11 @@
      */
     session_start();
 
-    if (!isset($_SESSION['rg'])) {
+    /*if (!isset($_SESSION['rg'])) {
         header('Location: login.php');
         exit();
     }
+    */
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,6 +18,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Public/Css/style.css">
     <title>Filtragem de senhas</title>
     <?php require_once("navbar.php"); ?>
 </head>
@@ -45,15 +48,34 @@
             "O nome desses checkbox é o mesmo porque assim eles são tratados como um array!
             Com isso vamos poder saber quais dias da semana o usuário escolheu e filtrar as senhas" - Greg
         -->
-        <label>Dias de aula</label> 
-        <input type="checkbox" name="dias[]">Segunda-Feira
-        <input type="checkbox" name="dias[]">Terça-Feira
-        <input type="checkbox" name="dias[]">Quarta-Feira
-        <input type="checkbox" name="dias[]">Quinta-Feira
-        <input type="checkbox" name="dias[]">Sexta-Feira
-        <input type="checkbox" name="dias[]">Sábado
+        <h2>Dias da semana:</h2>
 
-        <button type="submit">Filtrar senhas</button>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+            <label class="form-check-label" for="inlineCheckbox1">Segunda-feira</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+            <label class="form-check-label" for="inlineCheckbox2">Terça-feira</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+            <label class="form-check-label" for="inlineCheckbox2">Quarta-feira</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+            <label class="form-check-label" for="inlineCheckbox2">Quinta-feira</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+            <label class="form-check-label" for="inlineCheckbox2">Sexta-feira</label>
+        </div>
+
+        <button type="submit" class="btn btn-">Filtrar senhas</button>
 
     </form>
 </body>

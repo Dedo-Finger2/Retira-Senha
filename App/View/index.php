@@ -7,7 +7,7 @@
     session_start();
 
     if (!isset($_SESSION['rg'])) {
-        header('Location: login.php');
+        header('Location: cadastro.php');
         exit();
     }
 ?>
