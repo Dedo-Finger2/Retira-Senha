@@ -37,7 +37,7 @@
         <!--
             "Acho que sei como fazer isso funcionar, não garanto nada e nem vou dar atenção a isso por enquanto" - Greg
         -->
-        <a href="login2.php">Acesso com email e senha</a> 
+        <a href="login-email.php">Acesso com email e senha</a> 
     </form>
     
             </div>
