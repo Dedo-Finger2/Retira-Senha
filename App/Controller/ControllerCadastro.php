@@ -54,19 +54,41 @@ class ControllerCadastro
     public function login($data): ControllerCadastro
     {
         /**
-         * Logando o usuário com as credenciais vindas do formulário de login
+         * Logando o usuário com as credenciais vindas do formulário de login normal
+         * Se existir um campo RG no formulário, então o usuário está tentando logar com Nome e RG
+         * Senão existir o campo RG, mas existir o campo Email, então o usuário está tentando logar com Email e Senha (Login2)
          */
-        $usuario = (new ModelCadastro())->loginUser($data['nome'], $data['rg']);
+        if ($data['rg']) {
+            $usuario = (new ModelCadastro())->loginUser($data['nome'], $data['rg']);
 
-        /**
-         * Se esse login der certo, então inicie a sessão e armazene o RG do sujeito na sesão atual dele
-         * e então mande ele pra tela de home
-         */
-        if ($usuario) {
-            session_start();
-            $_SESSION['rg'] = $data['rg'];
-            header("Location: ../View/index.php");
-            return $this;
+            /**
+             * Se esse login der certo, então inicie a sessão e armazene o RG do sujeito na sesão atual dele
+             * e então mande ele pra tela de home e retorne o objeto
+             */
+            if ($usuario) {
+                session_start();
+                $_SESSION['rg'] = $data['rg'];
+                header("Location: ../View/index.php");
+                return $this;
+            }
+
+        } elseif($data['email']) {
+            $email = $data['email'];
+            $usuario = (new ModelCadastro())->loginUser(NULL, NULL, $data['email'], $data['senha']);
+
+            /**
+             * Se retornar true a passagem de dados acima com a variável $usuario então...
+             * consulta o Email do usuário pra ver se aparece algum registro, se aparecer então...
+             * inicie a sessão e atribua à variável de sessão $_SESSION['rg'] o valor RG da consulta feita com o email
+             * depois mande o usuário para a home e retorne o objeto
+             */
+            if ($usuario) {
+                $usuarioRg = (new ModelCadastro())->find("email = '{$email}'")->fetch();
+                session_start();
+                $_SESSION['rg'] = $usuarioRg->rg;
+                header("Location: ../View/index.php");
+                return $this;
+            }
         }
 
         return $this;

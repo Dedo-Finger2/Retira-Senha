@@ -40,29 +40,47 @@ class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Dat
     /**
      * Esse métdo é responsável por logar um usuário já cadastrado no sistema,
      * para isso pode ser feito validações aqui nesse classe tentando ver se o RG da pessoa
-     * está cadastrado no sistema, se sim, então cria-se uma sessão com o rg da pessoa
+     * está cadastrado no sistema
+     * 
+     * Os parâmetros vão ser nulos por padrão, e se eles não forem nulos significa que algum dado foi passado para eles
+     * se isso acontecer então o usuário está tentando logar, então são feitas verificações usando email e senha, e também
+     * rg e nome para ver se o usuário realmente possui cadastro no sistema, se as consultas SQL feitas com esses campos derem resultado
+     * então o usuário tem cadastro e pode logar - TRUE
+     * se não, então ele provavelmente é de arembepe - FALSE
+     * 
      * @param string $nome - Nome do usuário que está tentando logar
      * @param string $rg - RG do usuário que está tentando logar
+     * @param string $email - Email do usuário que está tentando logar
+     * @param string $senha - Senha do usuário que está tentando logar
      */
-    public function loginUser($nome, $rg)
+    public function loginUser($nome = null, $rg = null, $email = null, $senha = null)
     {
-        /**
-         * Cria um novo objeto ModelCadastro
-         * E usa o método herdado do DataLayer find()
-         * o método tenta buscar no banco de dados o RG especificado, que nesse caso é o do usuário
-         * fetch(true) retorna todos os resultados dentro de um array
-         */
-        $verifyRg = (new ModelCadastro())->find("rg = '{$rg}'")->fetch(true);
-        $verifyNome = (new ModelCadastro())->find("nome = '{$nome}'")->fetch(true);
-
-        /**
-         * Se as consultas acima der certo, então o usuário tem o rg cadastrado e o nome bate com o rg!
-         * Se sim então retorne TRUE
-         */
-        if ($verifyRg && $verifyNome) {
-            return true;
+        if (!empty($email) && !empty($senha)) {
+            /**
+             * Cria um novo objeto ModelCadastro
+             * E usa o método herdado do DataLayer find()
+             * o método tenta buscar no banco de dados o RG especificado, que nesse caso é o do usuário
+             * fetch(true) retorna todos os resultados dentro de um array
+             */
+            $verifyEmail = (new ModelCadastro())->find("email = '{$email}'")->fetch();
+            $verifySenha = (new ModelCadastro())->find("senha = '{$senha}'")->fetch();
+            
+            /**
+             * Se as consultas acima der certo, então o usuário tem o rg cadastrado e o nome bate com o rg!
+             * Se sim então retorne TRUE
+             */
+            if ($verifyEmail && $verifySenha) {
+                return true;
+            }
+        } elseif (!empty($rg) && !empty($nome)) {
+            $verifyRg = (new ModelCadastro())->find("rg = '{$rg}'")->fetch();
+            $verifyNome = (new ModelCadastro())->find("nome = '{$nome}'")->fetch();
+            
+            if ($verifyRg && $verifyNome) {
+                return true;
+            }
         }
-        
+
         /**
          * Se não, retorne FALSE
          */
