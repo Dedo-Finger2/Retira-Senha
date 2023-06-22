@@ -26,7 +26,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * @param array $dias_aula - Dias de aula marcados pelo usuário
      * @return array - Lista com as senhas filtradas
      */
-    public function listFilteredPasswords($nome_curso, $turno, $faixa_etaria, $dias_aula): array
+    public function listFilteredPasswords($nome_curso, $turno, $faixa_etaria, $dias_aula)
     {
         # Código aqui...
     }
@@ -37,7 +37,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * @param int $idUsuario - ID do usuário
      * @return array - Lista de senhas que estão associadas com o ID informado
      */
-    public function listUserPasswords($idUsuario): array
+    public function listUserPasswords($idUsuario)
     {
         # Código aqui...
     }
@@ -52,8 +52,9 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * cod_cadastro teria o ID do usuário dono dessa senha.
      * @param int $idUsuario - ID do usuário que quer devolver a senha
      * @param int $idSenha - ID da senha que vai ser devolvida
+     * @return ModelSenha
      */
-    public function returnPassword($idUsuario, $idSenha): array
+    public function returnPassword($idUsuario, $idSenha)
     {
         # Código aqui...
     }
@@ -64,8 +65,9 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * a SITUACAO da senha e também associar o ID do usuário a ela.
      * @param int $idUsuario - ID do usuário que está pegando a senha
      * @param int $idSenha - ID da senha que está sendo pega pelo usuário
+     * @return ModelSenha
      */
-    public function claimPassword($idUsuario, $idSenha): void
+    public function claimPassword($idUsuario, $idSenha)
     {
         # Código aqui...
     }
@@ -75,8 +77,9 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * de ver, isso pode ser uma opção dentro de uma tabela, assim o usuário vai poder ver
      * informações mais detalhadas da senha como: turno, faixa etária, etc.
      * @param int $idSenha - ID da senha que terá seus dados revelados
+     * @return ModelSenha
      */
-    public function showMorePasswordInfo($idSenha): void
+    public function showMorePasswordInfo($idSenha)
     {
         # Código aqui...
     }
@@ -86,8 +89,9 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * o usuário imprimir a senha se quiser. Essa também seria uma opção presente
      * numa tabela. {TALVEZ SEJA DESCARTADO} 
      * @param int $idSenha - ID da senha que será impressa
+     * @return ModelSenha
      */
-    public function printPassword($idSenha): void
+    public function printPassword($idSenha)
     {
         # Código aqui...
     }

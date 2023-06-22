@@ -10,6 +10,7 @@
         header('Location: login.php');
         exit();
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
