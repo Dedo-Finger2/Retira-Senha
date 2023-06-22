@@ -1,3 +1,15 @@
+<?php 
+
+require __DIR__."/../../vendor/autoload.php";
+
+use App\Model\ModelSenha;
+
+$senhas = (new ModelSenha())->listFilteredPasswords(null, $_POST['turno'], $_POST['idadeMinima'],$_POST['idadeMaxima'], null);
+
+print_r($senhas);
+
+?>
+
 <table> <!-- "Tabela com as senhas filtradas de a cordo com o que o usuário está buscando" - Greg -->
     <thead> <!-- "Cabeçalho da tabela" - Greg -->
         <tr>

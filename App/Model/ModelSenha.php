@@ -2,9 +2,12 @@
 
 namespace App\Model; // "Namespace da classe (localização dela)" - Greg
 use CoffeeCode\DataLayer\DataLayer; // "Chamando a classe Datalayer para servir como herança para a classe Senha" - Greg
+use CoffeeCode\DataLayer\Connect;
 
 class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datalayer" - Greg
 {
+    private $conn;
+
      /**
      * Construtor base, toda classe vai ter um igual
      * 
@@ -14,6 +17,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
     public function __construct()
     {
         parent::__construct("senha", [], "cod_senha", false);
+        $this->conn = Connect::getInstance();
     }
 
     /**
@@ -22,13 +26,35 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * de senhas.
      * @param string $nome_curso - Nome do curso selecionado pelo usuário
      * @param string $turno - Turno escolhido pelo usuário
-     * @param string $faixa_etaria - Faixa etária escohida pelo usuário
+     * @param string $idade_minima - Idade mínima escolhida pelo usuário
+     * @param string $idade_maxima - Idade máxima escolhida pelo usuário
      * @param array $dias_aula - Dias de aula marcados pelo usuário
      * @return array - Lista com as senhas filtradas
      */
-    public function listFilteredPasswords($nome_curso, $turno, $faixa_etaria, $dias_aula)
+    public function listFilteredPasswords($nome_curso = null, $turno = null, $idade_minima = null, $idade_maxima = null, $dias_aula = null)
     {
-        
+        $teste2 = $this->conn->query("SELECT 
+        turma.nome_turma, 
+        modulo.situacao_modulo,
+        curso.nome_curso,
+        turma.turno, 
+        turma.nome_faixa_etaria as faixa_etaria,
+        turma.qtd_aluno as quantidade_aluno,
+        COUNT(senha.cod_turma) as total_senhas,
+        GROUP_CONCAT(DISTINCT senha.autenticacao SEPARATOR ', ') as senhas
+        FROM turma 
+        INNER JOIN senha ON senha.cod_turma = turma.cod_turma
+        INNER JOIN modulo ON modulo.cod_modulo = turma.cod_modulo
+        INNER JOIN curso ON modulo.cod_curso = curso.cod_curso
+        WHERE senha.situacao = 'DISPONIVEL' 
+        AND turma.cod_periodo_letivo = '7'
+        AND modulo.situacao_modulo = 'ATIVO'
+        AND turma.turno LIKE '%$turno%'
+        AND turma.idade_minima LIKE '%$idade_minima%' AND turma.idade_maxima LIKE '%$idade_maxima%' 
+        GROUP BY turma.nome_turma
+        ");
+
+        return $teste2->fetchAll();
     }
 
     /**

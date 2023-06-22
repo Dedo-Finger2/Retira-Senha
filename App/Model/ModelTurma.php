@@ -2,9 +2,12 @@
 
 namespace App\Model;
 use CoffeeCode\DataLayer\DataLayer; // "Chamando a classe Datalayer para servir como herança para a classe Cadastro" - Greg
+use CoffeeCode\DataLayer\Connect;
 
 class ModelTurma extends DataLayer
 {
+    private $conn;
+
     /**
      * Construtor base, toda classe vai ter um igual
      * 
@@ -14,6 +17,7 @@ class ModelTurma extends DataLayer
     public function __construct()
     {
         parent::__construct("turma", [], "cod_turma", false);
+        $this->conn = Connect::getInstance();
     }
 
     /**
@@ -46,22 +50,40 @@ class ModelTurma extends DataLayer
     }
 
     /**
-     * Esse método é responsável por consultar as faixas etárias disponíveis no banco de dados
-     * @return array - Faixa etárias do banco de dados
+     * Esse método é responsável por consultar as idades mínimas disponíveis no banco de dados
+     * @return array - Idades mínimas do banco de dados
      */
-    public function returnFaixaEtaria()
+    public function returnIdadeMinima()
     {
         /**
          * Consulta que retorna apenas os valores diferentes da turma, no caso os turnos
          * Então o resultado disso vai ser um turno de cada um que exista, tudo isso dentro de um array
          */
-        $faixas_etarias = (new ModelTurma())->find(
-            null,
-            null,
-            "DISTINCT nome_faixa_etaria"
-        )->fetch(true);
+        $idadesMinima = $this->conn->query("SELECT
+        DISTINCT idade_minima FROM turma
+        ");
 
-        return $faixas_etarias;
+        $idadesMinimas = array_column($idadesMinima->fetchAll(), 'idade_minima');
+
+        return $idadesMinimas;
     }
 
+    /**
+     * Esse método é responsável por consultar as idades máximas disponíveis no banco de dados
+     * @return array - Idades máximas do banco de dados
+     */
+    public function returnIdadeMaxima()
+    {
+        /**
+         * Consulta que retorna apenas os valores diferentes da turma, no caso os turnos
+         * Então o resultado disso vai ser um turno de cada um que exista, tudo isso dentro de um array
+         */
+        $idadesMaxima = $this->conn->query("SELECT
+        DISTINCT idade_maxima FROM turma
+        ");
+
+        $idadesMaximas = array_column($idadesMaxima->fetchAll(), 'idade_maxima');
+
+        return$idadesMaximas;
+    }
 }

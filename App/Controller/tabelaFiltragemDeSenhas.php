@@ -5,7 +5,8 @@ require __DIR__."/../../vendor/autoload.php";
 use App\Controller\ControllerTurma;
 
 $turnos = (new ControllerTurma())->getTurnos();
-$faixas_etarias = (new ControllerTurma())->getFaixaEtarias();
+$idadeMinima = (new ControllerTurma())->getIdadesMinimas();
+$idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
 
 ?>
 
@@ -28,11 +29,24 @@ $faixas_etarias = (new ControllerTurma())->getFaixaEtarias();
     </select>
     
     <label>Faixa etária</label>
-    <select name="faixaEtaria">
+    De
+    <select name="idadeMinima">
+        <option>*</option>
         <?php
-            foreach ($faixas_etarias as $faixa_etaria) {
+            foreach ($idadeMinima as $idade) {
                 ?>
-                <option value="<?= $faixa_etaria ?>"><?=$faixa_etaria?></option>
+                <option value="<?= $idade ?>"><?=$idade?></option>
+                <?php
+            }
+        ?>
+    </select>
+    anos até
+    <select name="idadeMaxima">
+        <option>*</option>
+        <?php
+            foreach ($idadeMaxima as $idade) {
+                ?>
+                <option value="<?= $idade ?>"><?=$idade?></option>
                 <?php
             }
         ?>
