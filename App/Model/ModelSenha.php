@@ -33,11 +33,22 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      */
     public function listFilteredPasswords($nome_curso = null, $turno = null, $idade_minima = null, $idade_maxima = null, $dias_aula = null)
     {
+        $clausulas_like = array();
+
+        /**
+         * Para cada dia selecionado criar uma query customizada que vai pegar o dia e as 3 primeiras letras dele
+         */
+        foreach ($dias_aula as $dia) {
+            $clausulas_like[] = "turma.dias_de_aula LIKE '%$dia%' OR turma.dias_de_aula LIKE '%" . substr($dia, 0, 3) . "%'";
+        }
+        $clausulas_where = implode(" OR ", $clausulas_like);
+
         $teste2 = $this->conn->query("SELECT 
         turma.nome_turma, 
         modulo.situacao_modulo,
         curso.nome_curso,
-        turma.turno, 
+        turma.turno,
+        turma.dias_de_aula,
         turma.nome_faixa_etaria as faixa_etaria,
         turma.qtd_aluno as quantidade_aluno,
         COUNT(senha.cod_turma) as total_senhas,
@@ -50,7 +61,8 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         AND turma.cod_periodo_letivo = '7'
         AND modulo.situacao_modulo = 'ATIVO'
         AND turma.turno LIKE '%$turno%'
-        AND turma.idade_minima LIKE '%$idade_minima%' AND turma.idade_maxima LIKE '%$idade_maxima%' 
+        AND turma.idade_minima LIKE '%$idade_minima%' AND turma.idade_maxima LIKE '%$idade_maxima%'
+        AND ($clausulas_where)
         GROUP BY turma.nome_turma
         ");
 
@@ -59,7 +71,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
 
     /**
      * Esse método será responsável por retornar uma lista com as senhas que o usuário
-     * possui associado a seu nome.
+     * possui associado a seu nome, isso vai ser obtido por meio da relação entre Cadastro e Senha
      * @param int $idUsuario - ID do usuário
      * @return array - Lista de senhas que estão associadas com o ID informado
      */

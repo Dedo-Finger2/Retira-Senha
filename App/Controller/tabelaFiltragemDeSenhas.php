@@ -61,27 +61,27 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
     <h2>Dias da semana:</h2>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Segunda-feira">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="SEGUNDA">
         <label class="form-check-label" for="inlineCheckbox1">Segunda-feira</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Terça-feira">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="TER">
         <label class="form-check-label" for="inlineCheckbox2">Terça-feira</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Quarta-feira">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox3" value="QUARTA">
         <label class="form-check-label" for="inlineCheckbox3">Quarta-feira</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox4" value="Quinta-feira">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox4" value="QUI">
         <label class="form-check-label" for="inlineCheckbox4">Quinta-feira</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox5" value="Sexta-feira">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox5" value="SEX">
         <label class="form-check-label" for="inlineCheckbox5">Sexta-feira</label>
     </div>
 

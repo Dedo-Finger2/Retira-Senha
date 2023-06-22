@@ -4,7 +4,7 @@ require __DIR__."/../../vendor/autoload.php";
 
 use App\Model\ModelSenha;
 
-$senhas = (new ModelSenha())->listFilteredPasswords(null, $_POST['turno'], $_POST['idadeMinima'],$_POST['idadeMaxima'], null);
+$senhas = (new ModelSenha())->listFilteredPasswords(null, null, null, null, $_POST['dias']);
 
 print_r($senhas);
 
