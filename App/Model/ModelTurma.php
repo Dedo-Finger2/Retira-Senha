@@ -35,4 +35,33 @@ class ModelTurma extends DataLayer
         return $turnos;
     }
 
+    /**
+     * Esse método via ser responsável por retornar o nome e ID dos cursos disponíveis no banco
+     * Apenas os nomes serão exibidos ao usuário
+     * @return array - Array com o nome e ID dos cursos
+     */
+    public function returnCursos()
+    {
+        # Código aqui...
+    }
+
+    /**
+     * Esse método é responsável por consultar as faixas etárias disponíveis no banco de dados
+     * @return array - Faixa etárias do banco de dados
+     */
+    public function returnFaixaEtaria()
+    {
+        /**
+         * Consulta que retorna apenas os valores diferentes da turma, no caso os turnos
+         * Então o resultado disso vai ser um turno de cada um que exista, tudo isso dentro de um array
+         */
+        $faixas_etarias = (new ModelTurma())->find(
+            null,
+            null,
+            "DISTINCT nome_faixa_etaria"
+        )->fetch(true);
+
+        return $faixas_etarias;
+    }
+
 }

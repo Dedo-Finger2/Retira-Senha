@@ -22,4 +22,20 @@ class ControllerTurma
 
         return $turnosArray;
     }
+
+    /**
+     * Esse método coleta os turnos da consulta do Model e põe eles dentro de um array menor
+     * contendo só os turnos mesmo
+     */
+    public function getFaixaEtarias()
+    {
+        $faixaEtariasArray = [];
+        $faixasEtarias = (new ModelTurma())->returnFaixaEtaria();
+
+        foreach ($faixasEtarias as $faixaEtaria) {
+            array_push($faixaEtariasArray, $faixaEtaria->nome_faixa_etaria);
+        }
+
+        return $faixaEtariasArray;
+    }
 }

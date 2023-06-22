@@ -28,7 +28,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      */
     public function listFilteredPasswords($nome_curso, $turno, $faixa_etaria, $dias_aula)
     {
-        # Código aqui...
+        
     }
 
     /**
