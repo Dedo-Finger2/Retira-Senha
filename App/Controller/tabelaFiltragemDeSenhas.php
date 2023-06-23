@@ -9,34 +9,52 @@ $faixas_etarias = (new ControllerTurma())->getFaixaEtarias();
 
 ?>
 
-<form action="senhasFiltradas.php" method="post">
-            
-    <label>Nome do curso</label> <!-- "Nome do input" - Greg -->
-    <select name="nomeCurso"> <!-- "Select" - Greg -->
-        <option value="#">Analise</option> <!-- "Dados do banco serão inseridos aqui sempre dentro de um <option></option>" - Greg -->
-    </select>
-    
-    <label>Turno</label>
-    <select name="turno">
-        <?php
-            foreach ($turnos as $turno) {
-                ?>
-                <option value="<?= $turno ?>"><?=$turno?></option>
+<div class="container">
+     <div class="row">
+        <div class="card card-sm">
+            <div class="card-body">
+                
+        <h2>Marque as informações do curso que você tem interesse</h2>
+        <form  class="form-control-sm" action="senhasFiltradas.php" method="post">   
+
+        <div class="mb-6">
+        <div class="mb-3">
+            <label>Nome do curso</label> <!-- "Nome do input" - Greg -->
+            <select class="form-select form-select-sm  custom-select-width" aria-label="Default select example" name="nomeCurso"> <!-- "Select" - Greg -->
+                <option value="#">Analise</option> <!-- "Dados do banco serão inseridos aqui sempre dentro de um <option></option>" - Greg -->
+            </select>
+        </div>
+        </div>
+
+        <div class="mb-6">
+        <div class="mb-3">
+            <label>Faixa etária</label>
+            <select  class=" form-select form-select-sm  custom-select-width" aria-label="Default select example" name="faixaEtaria">
                 <?php
-            }
-        ?>
-    </select>
-    
-    <label>Faixa etária</label>
-    <select name="faixaEtaria">
-        <?php
-            foreach ($faixas_etarias as $faixa_etaria) {
+                    foreach ($faixas_etarias as $faixa_etaria) {
+                        ?>
+                        <option value="<?= $faixa_etaria ?>"><?=$faixa_etaria?></option>
+                        <?php
+                    }
                 ?>
-                <option value="<?= $faixa_etaria ?>"><?=$faixa_etaria?></option>
+            </select>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <div class="mb-3">
+                <label>Turno</label>
+                <select  class="form-select form-select-sm  custom-select-width" aria-label="Default select example" name="turno">
                 <?php
-            }
-        ?>
-    </select>
+                    foreach ($turnos as $turno) {
+                        ?>
+                        <option value="<?= $turno ?>"><?=$turno?></option>
+                        <?php
+                    }
+                ?>
+                </select>
+        </div>
+    </div>
 
     <br><br> <!-- "Quebra de linha pq não aguentei o agrupamento disso tudo kk" - Greg -->
     
@@ -44,7 +62,10 @@ $faixas_etarias = (new ControllerTurma())->getFaixaEtarias();
         "O nome desses checkbox é o mesmo porque assim eles são tratados como um array!
         Com isso vamos poder saber quais dias da semana o usuário escolheu e filtrar as senhas" - Greg
     -->
-    <h2>Dias da semana:</h2>
+
+    <!-- Checkbox -->
+
+    <h3>Dias da semana:</h3>
 
     <div class="form-check form-check-inline">
         <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Segunda-feira">
@@ -72,4 +93,10 @@ $faixas_etarias = (new ControllerTurma())->getFaixaEtarias();
     </div>
 
     <button type="submit" class="btn btn-primary">Filtrar senhas</button>
-</form>
+                
+            </form>
+        </div> <!--Fechamento div card-body -->
+    </div> <!--Fechamento div card -->
+</div>
+</div>
+</div> <!--Fechamento div container -->

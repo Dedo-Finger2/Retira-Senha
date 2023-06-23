@@ -50,3 +50,8 @@ body{
     width: 400px; /* Defina a largura desejada */
     height: auto; /* Mantém a proporção de altura automática */
   }
+
+  .custom-select-width {
+    width: 200px; /* Ajusta a largura do select conforme necessário */
+}
+
