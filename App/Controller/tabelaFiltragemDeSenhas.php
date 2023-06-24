@@ -55,8 +55,6 @@ $faixas_etarias = (new ControllerTurma())->getFaixaEtarias();
                 </select>
         </div>
     </div>
-
-    <br><br> <!-- "Quebra de linha pq não aguentei o agrupamento disso tudo kk" - Greg -->
     
     <!--
         "O nome desses checkbox é o mesmo porque assim eles são tratados como um array!
@@ -64,7 +62,8 @@ $faixas_etarias = (new ControllerTurma())->getFaixaEtarias();
     -->
 
     <!-- Checkbox -->
-
+                
+    <div class="col-md-6">
     <h3>Dias da semana:</h3>
 
     <div class="form-check form-check-inline">
@@ -94,9 +93,8 @@ $faixas_etarias = (new ControllerTurma())->getFaixaEtarias();
 
     <button type="submit" class="btn btn-primary">Filtrar senhas</button>
                 
-            </form>
-        </div> <!--Fechamento div card-body -->
-    </div> <!--Fechamento div card -->
-</div>
-</div>
+    </form>
+                </div> <!--Fechamento div card-body -->
+            </div> <!--Fechamento div card -->
+        </div>  <!--Fechamento div col md6-->
 </div> <!--Fechamento div container -->
