@@ -69,7 +69,7 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="TER">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="TERÇA">
         <label class="form-check-label" for="inlineCheckbox2">Terça-feira</label>
     </div>
 
@@ -79,12 +79,12 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox4" value="QUI">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox4" value="QUINTA">
         <label class="form-check-label" for="inlineCheckbox4">Quinta-feira</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox5" value="SEX">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox5" value="SEXTA">
         <label class="form-check-label" for="inlineCheckbox5">Sexta-feira</label>
     </div>
 

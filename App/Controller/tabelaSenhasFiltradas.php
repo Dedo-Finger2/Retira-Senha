@@ -8,7 +8,7 @@ use App\Model\ModelSenha;
  * $senhas representa as senhas filtradas, cada parâmetro representa um select na tela de filtragem de senhas
  * Atualmente em fase de testes, por isso tem o print_r ali
  */
-$senhas = (new ModelSenha())->listFilteredPasswords(null, null, null, null, $_POST['dias']);
+$senhas = (new ModelSenha())->listFilteredPasswords(null, null, $_POST['idadeMinima'], $_POST['idadeMaxima'], null);
 
 print_r($senhas);
 
