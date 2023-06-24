@@ -4,6 +4,9 @@ require __DIR__."/../../vendor/autoload.php";
 
 use App\Controller\ControllerTurma;
 
+/**
+ * Puxando os resultaods do controller pra cá
+ */
 $turnos = (new ControllerTurma())->getTurnos();
 $idadeMinima = (new ControllerTurma())->getIdadesMinimas();
 $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
@@ -22,18 +25,7 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
         <?php
             foreach ($turnos as $turno) {
                 ?>
-                <option value="<?= $turno ?>"><?=$turno?></option>
-                <?php
-            }
-        ?>
-    </select>
-    
-    <label>Faixa etária</label>
-    <select name="faixaEtaria">
-        <?php
-            foreach ($faixas_etarias as $faixa_etaria) {
-                ?>
-                <option value="<?= $faixa_etaria ?>"><?=$faixa_etaria?></option>
+                    <option value="<?= $turno ?>"><?=$turno?></option>
                 <?php
             }
         ?>
@@ -57,7 +49,7 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="TER">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="TERÇA">
         <label class="form-check-label" for="inlineCheckbox2">Terça-feira</label>
     </div>
 
@@ -67,12 +59,12 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox4" value="QUI">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox4" value="QUINTA">
         <label class="form-check-label" for="inlineCheckbox4">Quinta-feira</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox5" value="SEX">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox5" value="SEXTA">
         <label class="form-check-label" for="inlineCheckbox5">Sexta-feira</label>
     </div>
 

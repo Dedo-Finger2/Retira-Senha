@@ -28,6 +28,6 @@
     </head>
     <body>
         <h1>Filtrando senhas</h1>
-        <?php require_once("../Controller/tabelaFiltragemDeSenhas.php") ?>
+        <?php require_once("../Controller/formularioFiltragemDeSenhas.php") ?>
     </body>
 </html>

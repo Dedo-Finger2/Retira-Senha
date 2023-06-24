@@ -33,16 +33,44 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      */
     public function listFilteredPasswords($nome_curso = null, $turno = null, $idade_minima = null, $idade_maxima = null, $dias_aula = null)
     {
-        $clausulas_like = array();
-
         /**
          * Para cada dia selecionado criar uma query customizada que vai pegar o dia e as 3 primeiras letras dele
+         * Se os dias de aula não forem nulos, ou seja, se o usuário escolher algum dia de semana, então fazer a query correspondente
          */
-        foreach ($dias_aula as $dia) {
-            $clausulas_like[] = "turma.dias_de_aula LIKE '%$dia%' OR turma.dias_de_aula LIKE '%" . substr($dia, 0, 3) . "%'";
-        }
-        $clausulas_where = implode(" OR ", $clausulas_like);
+        if ($dias_aula) {
+            $clausulas_like = array();
+            foreach ($dias_aula as $dia) {
+                $clausulas_like[] = "turma.dias_de_aula LIKE '%$dia%' OR turma.dias_de_aula LIKE '%" . substr($dia, 0, 3) . "%'";
+            }
+            $clausulas_where = implode(" OR ", $clausulas_like);
 
+            $teste2 = $this->conn->query("SELECT 
+            turma.nome_turma, 
+            modulo.situacao_modulo,
+            curso.nome_curso,
+            turma.turno,
+            turma.dias_de_aula,
+            turma.nome_faixa_etaria as faixa_etaria,
+            turma.qtd_aluno as quantidade_aluno,
+            COUNT(senha.cod_turma) as total_senhas,
+            GROUP_CONCAT(DISTINCT senha.autenticacao SEPARATOR ', ') as senhas
+            FROM turma 
+            INNER JOIN senha ON senha.cod_turma = turma.cod_turma
+            INNER JOIN modulo ON modulo.cod_modulo = turma.cod_modulo
+            INNER JOIN curso ON modulo.cod_curso = curso.cod_curso
+            WHERE senha.situacao = 'DISPONIVEL' 
+            AND turma.cod_periodo_letivo = '7'
+            AND modulo.situacao_modulo = 'ATIVO'
+            AND turma.turno LIKE '%$turno%'
+            AND turma.idade_minima <= '%$idade_minima%' AND turma.idade_maxima >= '%$idade_maxima%'
+            AND ($clausulas_where)
+            GROUP BY turma.nome_turma
+            ");
+        }
+
+        /**
+         * Query sem os dias da semana selecionado
+         */
         $teste2 = $this->conn->query("SELECT 
         turma.nome_turma, 
         modulo.situacao_modulo,
@@ -61,8 +89,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         AND turma.cod_periodo_letivo = '7'
         AND modulo.situacao_modulo = 'ATIVO'
         AND turma.turno LIKE '%$turno%'
-        AND turma.idade_minima LIKE '%$idade_minima%' AND turma.idade_maxima LIKE '%$idade_maxima%'
-        AND ($clausulas_where)
+        AND turma.idade_minima <= '%$idade_minima%' AND turma.idade_maxima >= '%$idade_maxima%'
         GROUP BY turma.nome_turma
         ");
 

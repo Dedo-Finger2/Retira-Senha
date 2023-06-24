@@ -2,7 +2,6 @@
 
 $dias_semana = array("segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo");
 
-// Suponha que os checkboxes foram marcados para "segunda", "terça", "quarta" e "quinta"
 $selecionados = array("segunda", "terça", "quarta");
 
 if (count($selecionados) == 2) {
