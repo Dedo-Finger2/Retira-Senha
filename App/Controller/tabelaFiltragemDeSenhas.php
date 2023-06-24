@@ -4,6 +4,9 @@ require __DIR__."/../../vendor/autoload.php";
 
 use App\Controller\ControllerTurma;
 
+/**
+ * Puxando os resultaods do controller pra cá
+ */
 $turnos = (new ControllerTurma())->getTurnos();
 $idadeMinima = (new ControllerTurma())->getIdadesMinimas();
 $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
@@ -22,7 +25,7 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
         <?php
             foreach ($turnos as $turno) {
                 ?>
-                <option value="<?= $turno ?>"><?=$turno?></option>
+                    <option value="<?= $turno ?>"><?=$turno?></option>
                 <?php
             }
         ?>
@@ -35,7 +38,7 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
         <?php
             foreach ($idadeMinima as $idade) {
                 ?>
-                <option value="<?= $idade ?>"><?=$idade?></option>
+                    <option value="<?= $idade ?>"><?=$idade?></option>
                 <?php
             }
         ?>
@@ -46,7 +49,7 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
         <?php
             foreach ($idadeMaxima as $idade) {
                 ?>
-                <option value="<?= $idade ?>"><?=$idade?></option>
+                    <option value="<?= $idade ?>"><?=$idade?></option>
                 <?php
             }
         ?>

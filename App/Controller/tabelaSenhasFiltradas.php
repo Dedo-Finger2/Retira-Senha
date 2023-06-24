@@ -4,6 +4,10 @@ require __DIR__."/../../vendor/autoload.php";
 
 use App\Model\ModelSenha;
 
+/**
+ * $senhas representa as senhas filtradas, cada parâmetro representa um select na tela de filtragem de senhas
+ * Atualmente em fase de testes, por isso tem o print_r ali
+ */
 $senhas = (new ModelSenha())->listFilteredPasswords(null, null, null, null, $_POST['dias']);
 
 print_r($senhas);
