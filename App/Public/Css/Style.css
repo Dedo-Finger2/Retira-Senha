@@ -29,8 +29,10 @@ body{
 }
 
 .container{
-    display: flex;  /* (classe-bootstrap) Mantem o formulario e a imagem alinhados para não descerem*/
-    margin: 3%;     /* Mantem o formulario e a imagem um pouco abaixo da tela */                  
+  display: flex;  /* (classe-bootstrap) Mantem o formulario e a imagem alinhados para não descerem*/
+  margin: 3%;     /* Mantem o formulario e a imagem um pouco abaixo da tela */  
+  justify-content: center;
+  align-items: center;                 
 }
 
 .left{
@@ -39,7 +41,7 @@ body{
 
 .right{
   margin-left: auto; /*(Classe comum) div criada para manter o formulario mais a direita */
-  margin-right: -100px;
+  margin-right: -75px;
 }
 
 
@@ -48,3 +50,11 @@ body{
     width: 400px; /* Defina a largura desejada */
     height: auto; /* Mantém a proporção de altura automática */
   }
+
+  .custom-select-width {
+    width: 200px; /* Ajusta a largura do select conforme necessário */
+}
+
+/*.col-md-6{
+  margin-top: -200px; /* Ajusta os checkbox mais acima dentro do card 
+}*/

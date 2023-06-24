@@ -30,30 +30,6 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
             }
         ?>
     </select>
-    
-    <label>Faixa etária</label>
-    De
-    <select name="idadeMinima">
-        <option>*</option>
-        <?php
-            foreach ($idadeMinima as $idade) {
-                ?>
-                    <option value="<?= $idade ?>"><?=$idade?></option>
-                <?php
-            }
-        ?>
-    </select>
-    anos até
-    <select name="idadeMaxima">
-        <option>*</option>
-        <?php
-            foreach ($idadeMaxima as $idade) {
-                ?>
-                    <option value="<?= $idade ?>"><?=$idade?></option>
-                <?php
-            }
-        ?>
-    </select>
 
     <br><br> <!-- "Quebra de linha pq não aguentei o agrupamento disso tudo kk" - Greg -->
     
@@ -61,7 +37,11 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
         "O nome desses checkbox é o mesmo porque assim eles são tratados como um array!
         Com isso vamos poder saber quais dias da semana o usuário escolheu e filtrar as senhas" - Greg
     -->
-    <h2>Dias da semana:</h2>
+
+    <!-- Checkbox -->
+                
+    <div class="col-md-6">
+    <h3>Dias da semana:</h3>
 
     <div class="form-check form-check-inline">
         <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="SEGUNDA">
@@ -89,4 +69,9 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
     </div>
 
     <button type="submit" class="btn btn-primary">Filtrar senhas</button>
-</form>
+                
+    </form>
+                </div> <!--Fechamento div card-body -->
+            </div> <!--Fechamento div card -->
+        </div>  <!--Fechamento div col md6-->
+</div> <!--Fechamento div container -->
