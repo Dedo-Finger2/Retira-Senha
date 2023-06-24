@@ -79,6 +79,8 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         turma.dias_de_aula,
         turma.nome_faixa_etaria as faixa_etaria,
         turma.qtd_aluno as quantidade_aluno,
+        turma.idade_minima,
+        turma.idade_maxima,
         COUNT(senha.cod_turma) as total_senhas,
         GROUP_CONCAT(DISTINCT senha.autenticacao SEPARATOR ', ') as senhas
         FROM turma 
@@ -89,7 +91,8 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         AND turma.cod_periodo_letivo = '7'
         AND modulo.situacao_modulo = 'ATIVO'
         AND turma.turno LIKE '%$turno%'
-        AND turma.idade_minima <= '%$idade_minima%' AND turma.idade_maxima >= '%$idade_maxima%'
+        AND turma.idade_minima >= $idade_minima
+        AND turma.idade_maxima <= $idade_maxima
         GROUP BY turma.nome_turma
         ");
 

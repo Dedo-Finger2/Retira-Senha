@@ -31,6 +31,30 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
         ?>
     </select>
 
+    <label>Faixa etária</label>
+    De
+    <select name="idadeMinima">
+        <option>*</option>
+        <?php
+            foreach ($idadeMinima as $idade) {
+                ?>
+                    <option value="<?= $idade ?>"><?=$idade?></option>
+                <?php
+            }
+        ?>
+    </select>
+    anos até
+    <select name="idadeMaxima">
+        <option>*</option>
+        <?php
+            foreach ($idadeMaxima as $idade) {
+                ?>
+                    <option value="<?= $idade ?>"><?=$idade?></option>
+                <?php
+            }
+        ?>
+    </select>
+
     <br><br> <!-- "Quebra de linha pq não aguentei o agrupamento disso tudo kk" - Greg -->
     
     <!--

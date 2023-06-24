@@ -4,14 +4,14 @@
      * Se a variável de sessão RG for varzia, significa que o usuário é sabido demais e ta tentando acessar essa página
      * sem se logar antes! Se for caso, então mandar ele de volta pra tela de login" - Greg
      * Comentei o sistema de verificação só pra ver a tela enquanto edito - leone
-     
+     */
     session_start();
 
     if (!isset($_SESSION['rg'])) {
         header('Location: login.php');
         exit();
     }
-    */
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,6 +28,6 @@
     </head>
     <body>
         <h1>Filtrando senhas</h1>
-        <?php require_once("../Controller/formularioFiltragemDeSenhas.php") ?>
+        <?php require_once("../Controller/tabelaFiltragemDeSenhas.php") ?>
     </body>
 </html>
