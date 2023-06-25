@@ -56,7 +56,7 @@
 							</div>
 
 							<!-- Cadastrar e link para a tela de login -->
-							<button type="submit" class="btn btn-warning">Cadastrar</button><br><br>
+							<button type="submit" class="btn btn-warning text-white">Cadastrar</button><br><br>
 							<a href="login.php">Já possui conta?</a>
 						</form>
 						
