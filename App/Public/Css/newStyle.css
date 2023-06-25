@@ -1,0 +1,44 @@
+/* Define a altura do html e do body para 100% e oculta qualquer conteúdo fora da janela do navegador */
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Define a altura do container para 100% */
+.container {
+    height: 100%;
+}
+
+/* Define a largura máxima do form-wrapper para 450px e uma margem à direita de 4rem */
+.form-wrapper {
+    max-width: 450px;
+    margin-right: 4rem;
+}
+
+/* Define o peso da fonte em negrito para as etiquetas do formulário */
+.form-wrapper label {
+    font-weight: bold;
+}
+
+/* Define a altura de 38px e o tamanho da fonte de 16px para as entradas do formulário */
+.form-wrapper input {
+    height: 38px;
+    font-size: 16px;
+}
+
+/* Define uma margem superior de 1rem para o botão do formulário */
+.form-wrapper button {
+    margin-top: 1rem;
+}
+
+/* Define a largura da imagem-wrapper para 50% e a margem à esquerda de 4rem tmb */
+.image-wrapper {
+    width: 50%;
+    margin-left: 4rem;
+}
+
+/* Define a largura máxima da imagem para 100% para que a imagem seja responsiva */
+.image-wrapper img {
+    max-width: 100%;
+}
