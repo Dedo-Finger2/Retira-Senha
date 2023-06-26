@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <!-- "Aqui vai ficar o formulário para login usuáros" - Greg -->
                         <form action="../Controller/cadastroHandler.php" method="post">
-                            <h1 class="tittle-login">Acesso com email e senha</h1>
+                            <h1 class="tittle">Acesso com email e senha</h1>
 
                             <div class="form-group">
                             <label for="emailId">Email</label>
@@ -31,7 +31,7 @@
                             </div>   
 
                             <br>
-                            <button type="submit" class="btn btn-success">Logar</button><br><br>
+                            <button type="submit" class="btn btn-primary">Logar</button><br><br>
 
                             <a href="cadastro.php">Não possui conta?</a><br>
                             <a href="login.php">Aceso com RG</a> 
@@ -42,9 +42,9 @@
 
             <!-- Card da direita -->
             <div class="right">
-                <h1 class="tittle-login" id="bem-vindo-login">Bem vindo!!</h1>
+                <h1 class="tittle" id="bem-vindo-login">Bem vindo!!</h1>
                 <p class="font-weight-light">É bom ter você de volta! deseja fazer uma nova consulta? </p>
-                <img src="../Public/img/kids-studying-from-home-animate.svg" class="img-fluid" alt="Imagem responsiva" id="imagem-login">
+                <img src="../Public/img/college-students-animate.svg" class="img-fluid" alt="Imagem responsiva" id="imagem-login">
             </div>
         </div>
         <!-- Scripts do Bootstrap -->

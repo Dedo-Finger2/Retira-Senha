@@ -21,11 +21,7 @@ body{
 } 
 
 .tittle{
-    color: #fdd700;  /*(Classe comum) altera os titulos para amarelo */
-}
-
-.tittle-login{
-    color: #34c05c;  /*(Classe comum) altera os titulos para verde */
+    color: rgb(36, 74, 240);  /*(Classe comum) altera os titulos para amarelo */
 }
 
 .container{

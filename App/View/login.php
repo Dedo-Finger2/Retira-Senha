@@ -16,7 +16,7 @@
             <div class="left">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="tittle-login">Login</h1>
+                        <h1 class="tittle">Login</h1>
                         <!-- "Aqui vai ficar o formulário para login usuáros" - Greg -->
                         <form action="../Controller/cadastroHandler.php" method="post">
                             <div class="form-group">
@@ -30,7 +30,7 @@
                                 <small id="nomeHelpe" class="form-text text-muted">Apenas números (9 dígitos), Ex: 12.345.678-9</small>
                             </div>        
 
-                            <button type="submit" class="btn btn-success">Logar</button><br><br>
+                            <button type="submit" class="btn btn-primary">Logar</button><br><br>
                             
                             <a href="cadastro.php">Não possui conta?</a><br>
                             <a href="login-email.php">Acesso com email e senha</a> 
@@ -40,9 +40,9 @@
             </div>
             <!-- Card da direita -->
             <div class="right">
-                <h1 class="tittle-login" id="bem-vindo-login">Bem vindo!!</h1>
+                <h1 class="tittle" id="bem-vindo-login">Bem vindo!!</h1>
                 <p class="font-weight-light">É bom ter você de volta! deseja fazer uma nova consulta? </p>
-                <img src="../Public/img/kids-studying-from-home-animate.svg" class="img-fluid" alt="Imagem responsiva" id="imagem-login">
+                <img src="../Public/img/college-students-animate.svg" class="img-fluid" alt="Imagem responsiva" id="imagem-login">
             </div>
         </div>
         
