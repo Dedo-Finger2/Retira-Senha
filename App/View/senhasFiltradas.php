@@ -24,8 +24,11 @@
         <?php require_once("navbar.php"); ?>
     </head>
     <body>
-        <h1 class="ms-5">Senhas filtradas</h1>
+        
         <!-- TABELA PROVISÓRIA -->
-        <?php require_once("../Controller/tabelaSenhasFiltradas.php") ?>
+        <div class="container">
+            <h1 class="text-center">Senhas filtradas</h1>
+            <?php require_once("../Controller/tabelaSenhasFiltradas.php") ?>
+        </div>
     </body>
 </html>
