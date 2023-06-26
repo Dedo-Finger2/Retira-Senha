@@ -14,18 +14,13 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
 ?>
 
 <form action="senhasFiltradas.php" method="post">
-            
-    <label>Nome do curso</label> <!-- "Nome do input" - Greg -->
-    <select name="nomeCurso"> <!-- "Select" - Greg -->
-        <option value="#">Analise</option> <!-- "Dados do banco serão inseridos aqui sempre dentro de um <option></option>" - Greg -->
-    </select>
-    
-    <label>Turno</label>
-    <select name="turno">
+
+    <label>Turno</label> <!-- "Nome do input" - Greg -->
+    <select name="turno"> <!-- "Select" - Greg -->
         <?php
             foreach ($turnos as $turno) {
                 ?>
-                    <option value="<?= $turno ?>"><?=$turno?></option>
+                    <option value="<?= $turno ?>"><?=$turno?></option> <!-- "Dados do banco serão inseridos aqui sempre dentro de um <option></option>" - Greg -->
                 <?php
             }
         ?>

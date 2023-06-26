@@ -24,14 +24,13 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * Esse método será responsável por retornar uma lista com as senhas filtradas,
      * as senhas filtradas vão depender do que o usuário escolheu na tela de filtragem
      * de senhas.
-     * @param string $nome_curso - Nome do curso selecionado pelo usuário
      * @param string $turno - Turno escolhido pelo usuário
      * @param string $idade_minima - Idade mínima escolhida pelo usuário
      * @param string $idade_maxima - Idade máxima escolhida pelo usuário
      * @param array $dias_aula - Dias de aula marcados pelo usuário
      * @return array - Lista com as senhas filtradas
      */
-    public function listFilteredPasswords($nome_curso = null, $turno = null, $idade_minima = null, $idade_maxima = null, $dias_aula = null)
+    public function listFilteredPasswords($turno = null, $idade_minima = null, $idade_maxima = null, $dias_aula = null)
     {
         /**
          * Para cada dia selecionado criar uma query customizada que vai pegar o dia e as 3 primeiras letras dele
@@ -52,6 +51,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
             turma.dias_de_aula,
             turma.nome_faixa_etaria as faixa_etaria,
             turma.qtd_aluno as quantidade_aluno,
+            senha.cod_senha,
             COUNT(senha.cod_turma) as total_senhas,
             GROUP_CONCAT(DISTINCT senha.autenticacao SEPARATOR ', ') as senhas
             FROM turma 
@@ -81,6 +81,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         turma.qtd_aluno as quantidade_aluno,
         turma.idade_minima,
         turma.idade_maxima,
+        senha.cod_senha,
         COUNT(senha.cod_turma) as total_senhas,
         GROUP_CONCAT(DISTINCT senha.autenticacao SEPARATOR ', ') as senhas
         FROM turma 
