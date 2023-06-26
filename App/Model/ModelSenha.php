@@ -107,7 +107,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      */
     public function listUserPasswords($idUsuario)
     {
-        # Código aqui...
+        
     }
 
     /**
