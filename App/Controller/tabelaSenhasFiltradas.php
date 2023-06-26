@@ -14,13 +14,13 @@ $senhas = (new ModelSenha())->listFilteredPasswords(null, $_POST['idadeMinima'],
 
 ?>
 
-<table> <!-- "Tabela com as senhas filtradas de a cordo com o que o usuário está buscando" - Greg -->
+<table class="table ms-5"> <!-- "Tabela com as senhas filtradas de a cordo com o que o usuário está buscando" - Greg -->
     <thead> <!-- "Cabeçalho da tabela" - Greg -->
         <tr>
-            <th>Nome do curso</th>
-            <th>Senha</th>
-            <th>Faixa etária</th>
-            <th>Opções</th>
+            <th class="scope">Nome do curso</th>
+            <th class="scope">Senha</th>
+            <th class="scope">Faixa etária</th>
+            <th class="scope">Opções</th>
         </tr>
     </thead>
     <tbody> <!-- "Corpo da tabela, os dados entram aqui separados por <tr> e cada linha sendo um <td>" - Greg -->
@@ -33,7 +33,7 @@ $senhas = (new ModelSenha())->listFilteredPasswords(null, $_POST['idadeMinima'],
         -->
         <?php foreach ($senhas as $senha) { ?>
             <tr>
-                <td><?= $senha->nome_curso ?></td>
+                <td class="row"><?= $senha->nome_curso ?></td>
                 <td>
                     <form action="../Controller/senhaHandler.php" method="post">
                         <select name="senha">
@@ -57,10 +57,10 @@ $senhas = (new ModelSenha())->listFilteredPasswords(null, $_POST['idadeMinima'],
     </tbody>
     <tfoot> <!-- "Rodapé da tabela, mesma coisa do cabeçalho só que embaixo kk" - Greg -->
         <tr>
-            <th>Nome do curso</th>
-            <th>Senha</th>
-            <th>Faixa etária</th>
-            <th>Opções</th>
+            <th class="scope">Nome do curso</th>
+            <th class="scope">Senha</th>
+            <th class="scope">Faixa etária</th>
+            <th class="scope">Opções</th>
         </tr>
     </tfoot>
 </table>
