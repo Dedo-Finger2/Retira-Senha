@@ -143,7 +143,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         $senhaSelecionada->cod_cadastro = $idUsuario;
         $senhaSelecionada->situacao = 'UTILIZADA';
 
-        //$senhaSelecionada->save();
+        $senhaSelecionada->save();
 
         return $senhaSelecionada;
     }

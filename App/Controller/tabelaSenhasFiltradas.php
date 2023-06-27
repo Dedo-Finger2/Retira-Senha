@@ -49,7 +49,8 @@ $senhas = (new ModelSenha())->listFilteredPasswords(null, $_POST['idadeMinima'],
                     <input type="hidden" name="quantidadeAluno" value="<?= $senha->quantidade_aluno ?>"> <!-- Quantidade de alunos da turma -->
                     <input type="hidden" name="turno" value="<?= $senha->turno ?>"> <!-- Turno da turma -->
                     <input type="hidden" name="idSenha" value="<?= $senha->cod_senha ?>"> <!-- Código da senha escohida -->
-                    <button type="submit">Escolher senha</button>
+                    <button type="submit" name="claimPassword">Escolher senha</button>
+                    <button type="submit" name="teste">Teste</button>
                 </form>
                 </td>
             </tr>
