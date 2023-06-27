@@ -66,8 +66,11 @@ class ControllerCadastro
              * e então mande ele pra tela de home e retorne o objeto
              */
             if ($usuario) {
+                $rg = $data['rg'];
+                $idUsuario = (new ModelCadastro())->find("rg = '{$rg}'")->fetch();
                 session_start();
                 $_SESSION['rg'] = $data['rg'];
+                $_SESSION['idUsuario'] = $idUsuario->cod_cadastro;
                 header("Location: ../View/index.php");
                 return $this;
             }
@@ -80,12 +83,13 @@ class ControllerCadastro
              * Se retornar true a passagem de dados acima com a variável $usuario então...
              * consulta o Email do usuário pra ver se aparece algum registro, se aparecer então...
              * inicie a sessão e atribua à variável de sessão $_SESSION['rg'] o valor RG da consulta feita com o email
-             * depois mande o usuário para a home e retorne o objeto
+             * também é guardado o id do usuário, depois mande o usuário para a home e retorne o objeto
              */
             if ($usuario) {
                 $usuarioRg = (new ModelCadastro())->find("email = '{$email}'")->fetch();
                 session_start();
                 $_SESSION['rg'] = $usuarioRg->rg;
+                $_SESSION['idUsuario'] = $usuarioRg->cod_cadastro;
                 header("Location: ../View/index.php");
                 return $this;
             }

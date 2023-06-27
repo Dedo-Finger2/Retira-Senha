@@ -58,7 +58,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
             INNER JOIN senha ON senha.cod_turma = turma.cod_turma
             INNER JOIN modulo ON modulo.cod_modulo = turma.cod_modulo
             INNER JOIN curso ON modulo.cod_curso = curso.cod_curso
-            WHERE senha.situacao = 'DISPONIVEL' 
+            WHERE (senha.situacao = 'DISPONIVEL' OR senha.situacao != 'UTILIZADA')
             AND turma.cod_periodo_letivo = '7'
             AND modulo.situacao_modulo = 'ATIVO'
             AND turma.turno LIKE '%$turno%'
@@ -88,7 +88,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         INNER JOIN senha ON senha.cod_turma = turma.cod_turma
         INNER JOIN modulo ON modulo.cod_modulo = turma.cod_modulo
         INNER JOIN curso ON modulo.cod_curso = curso.cod_curso
-        WHERE senha.situacao = 'DISPONIVEL' 
+        WHERE (senha.situacao = 'DISPONIVEL' OR senha.situacao != 'UTILIZADA')
         AND turma.cod_periodo_letivo = '7'
         AND modulo.situacao_modulo = 'ATIVO'
         AND turma.turno LIKE '%$turno%'
@@ -138,7 +138,14 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      */
     public function claimPassword($idUsuario, $idSenha)
     {
-        # Código aqui...
+        $senhaSelecionada = (new ModelSenha())->findById($idSenha);
+
+        $senhaSelecionada->cod_cadastro = $idUsuario;
+        $senhaSelecionada->situacao = 'UTILIZADA';
+
+        //$senhaSelecionada->save();
+
+        return $senhaSelecionada;
     }
 
     /**
