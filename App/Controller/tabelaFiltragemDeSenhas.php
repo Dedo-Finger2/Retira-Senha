@@ -29,7 +29,6 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
     <label>Faixa etária</label>
     De
     <select name="idadeMinima">
-        <option>*</option>
         <?php
             foreach ($idadeMinima as $idade) {
                 ?>
@@ -40,7 +39,6 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
     </select>
     anos até
     <select name="idadeMaxima">
-        <option>*</option>
         <?php
             foreach ($idadeMaxima as $idade) {
                 ?>
@@ -87,10 +85,11 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
         <label class="form-check-label" for="inlineCheckbox5">Sexta-feira</label>
     </div>
 
+    <div class="form-check form-check-inline">
+        <input name="dias[]" class="form-check-input" type="checkbox" id="inlineCheckbox6" value="SÁBADO">
+        <label class="form-check-label" for="inlineCheckbox6">Sábado</label>
+    </div>
+
     <button type="submit" class="btn btn-primary">Filtrar senhas</button>
                 
     </form>
-                </div> <!--Fechamento div card-body -->
-            </div> <!--Fechamento div card -->
-        </div>  <!--Fechamento div col md6-->
-</div> <!--Fechamento div container -->

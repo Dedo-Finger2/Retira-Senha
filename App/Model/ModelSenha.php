@@ -41,7 +41,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
             foreach ($dias_aula as $dia) {
                 $clausulas_like[] = "turma.dias_de_aula LIKE '%$dia%' OR turma.dias_de_aula LIKE '%" . substr($dia, 0, 3) . "%'";
             }
-            $clausulas_where = implode(" OR ", $clausulas_like);
+            $clausulas_where = implode(" AND ", $clausulas_like);
 
             $teste2 = $this->conn->query("SELECT 
             turma.nome_turma, 
@@ -51,6 +51,8 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
             turma.dias_de_aula,
             turma.nome_faixa_etaria as faixa_etaria,
             turma.qtd_aluno as quantidade_aluno,
+            turma.idade_minima,
+            turma.idade_maxima,
             senha.cod_senha,
             COUNT(senha.cod_turma) as total_senhas,
             GROUP_CONCAT(DISTINCT senha.autenticacao SEPARATOR ', ') as senhas
@@ -62,10 +64,13 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
             AND turma.cod_periodo_letivo = '7'
             AND modulo.situacao_modulo = 'ATIVO'
             AND turma.turno LIKE '%$turno%'
-            AND turma.idade_minima <= '%$idade_minima%' AND turma.idade_maxima >= '%$idade_maxima%'
+            AND turma.idade_minima >= $idade_minima
+            AND turma.idade_maxima <= $idade_maxima
             AND ($clausulas_where)
             GROUP BY turma.nome_turma
             ");
+
+            return $teste2->fetchAll();
         }
 
         /**
@@ -108,7 +113,21 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      */
     public function listUserPasswords($idUsuario)
     {
-        
+        $idUsuario = $_SESSION['idUsuario'];
+
+        $query3 = $this->conn->query("SELECT 
+        curso.nome_curso,
+        senha.autenticacao,
+        senha.validade,
+        senha.cod_senha
+        FROM senha 
+        INNER JOIN turma ON turma.cod_turma = senha.cod_turma
+        INNER JOIN modulo ON modulo.cod_modulo = turma.cod_modulo
+        INNER JOIN curso ON modulo.cod_curso = curso.cod_curso
+        WHERE senha.cod_cadastro = '$idUsuario'
+        ");
+
+        return $query3->fetchAll();
     }
 
     /**

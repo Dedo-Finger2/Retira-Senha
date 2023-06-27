@@ -8,7 +8,7 @@ use App\Model\ModelSenha;
  * $senhas representa as senhas filtradas, cada parâmetro representa um select na tela de filtragem de senhas
  * Atualmente em fase de testes, por isso tem o print_r ali
  */
-$senhas = (new ModelSenha())->listFilteredPasswords(null, $_POST['idadeMinima'], $_POST['idadeMaxima'], null);
+$senhas = (new ModelSenha())->listFilteredPasswords($_POST['turno'], $_POST['idadeMinima'], $_POST['idadeMaxima'], $_POST['dias']);
 
 //print_r($senhas);
 
@@ -17,10 +17,12 @@ $senhas = (new ModelSenha())->listFilteredPasswords(null, $_POST['idadeMinima'],
 <table class="table ms-5"> <!-- "Tabela com as senhas filtradas de a cordo com o que o usuário está buscando" - Greg -->
     <thead> <!-- "Cabeçalho da tabela" - Greg -->
         <tr>
-            <th class="scope">Nome do curso</th>
-            <th class="scope">Senha</th>
-            <th class="scope">Faixa etária</th>
-            <th class="scope">Opções</th>
+            <th>Nome do curso</th>
+            <th>Senha</th>
+            <th>Faixa etária</th>
+            <th>Turno</th>
+            <th>Dias de aula</th>
+            <th>Opções</th>
         </tr>
     </thead>
     <tbody> <!-- "Corpo da tabela, os dados entram aqui separados por <tr> e cada linha sendo um <td>" - Greg -->
@@ -43,14 +45,16 @@ $senhas = (new ModelSenha())->listFilteredPasswords(null, $_POST['idadeMinima'],
                         </select>
                 </td>
                 <td><?= $senha->faixa_etaria ?></td> <!-- Faixa etária -->
+                <td><?= $senha->turno ?></td>
+                <td><?= $senha->dias_de_aula ?></td>
                 <td>
                     <input type="hidden" name="curso" value="<?= $senha->nome_curso ?>"> <!-- Nome do curso -->
                     <input type="hidden" name="turma" value="<?= $senha->nome_turma ?>"> <!-- Nome da turma -->
                     <input type="hidden" name="quantidadeAluno" value="<?= $senha->quantidade_aluno ?>"> <!-- Quantidade de alunos da turma -->
                     <input type="hidden" name="turno" value="<?= $senha->turno ?>"> <!-- Turno da turma -->
                     <input type="hidden" name="idSenha" value="<?= $senha->cod_senha ?>"> <!-- Código da senha escohida -->
-                    <button type="submit" name="claimPassword">Escolher senha</button>
-                    <button type="submit" name="teste">Teste</button>
+                    <button type="submit" name="acao" value="claimPassword">Escolher senha</button>
+                    <button type="submit" name="acao" value="teste">Teste</button>
                 </form>
                 </td>
             </tr>
@@ -58,10 +62,12 @@ $senhas = (new ModelSenha())->listFilteredPasswords(null, $_POST['idadeMinima'],
     </tbody>
     <tfoot> <!-- "Rodapé da tabela, mesma coisa do cabeçalho só que embaixo kk" - Greg -->
         <tr>
-            <th class="scope">Nome do curso</th>
-            <th class="scope">Senha</th>
-            <th class="scope">Faixa etária</th>
-            <th class="scope">Opções</th>
+            <th>Nome do curso</th>
+            <th>Senha</th>
+            <th>Faixa etária</th>
+            <th>Turno</th>
+            <th>Dias de aula</th>
+            <th>Opções</th>
         </tr>
     </tfoot>
 </table>
