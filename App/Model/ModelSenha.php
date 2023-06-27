@@ -152,12 +152,12 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * esse método vai garantir o usuário seja dono da senha que quis pegar, podemos mudar
      * a SITUACAO da senha e também associar o ID do usuário a ela.
      * @param int $idUsuario - ID do usuário que está pegando a senha
-     * @param int $idSenha - ID da senha que está sendo pega pelo usuário
+     * @param int $nomeSenha - Autenticacao da senha escolhida
      * @return ModelSenha
      */
-    public function claimPassword($idUsuario, $idSenha)
+    public function claimPassword($idUsuario, $nomeSenha)
     {
-        $senhaSelecionada = (new ModelSenha())->findById($idSenha);
+        $senhaSelecionada = (new ModelSenha())->find("autenticacao = '$nomeSenha'")->fetch();
 
         $senhaSelecionada->cod_cadastro = $idUsuario;
         $senhaSelecionada->situacao = 'UTILIZADA';

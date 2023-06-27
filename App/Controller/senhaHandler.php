@@ -10,7 +10,7 @@ use App\Model\ModelSenha;
 if (isset($_POST)) {
     switch ($_POST['acao']) {
         case 'claimPassword':
-            $senhaSelecionada = (new ModelSenha())->claimPassword($_SESSION['idUsuario'],$_POST['idSenha']);
+            $senhaSelecionada = (new ModelSenha())->claimPassword($_SESSION['idUsuario'],$_POST['senha']);
             header("Location: ../View/filtragemDeSenhas.php?senhaObtida=true");
         break;
         
