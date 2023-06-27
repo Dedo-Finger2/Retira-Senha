@@ -12,7 +12,7 @@
 
 	<body>
 		<div class="container d-flex justify-content-center vh-100 align-items-center">
-			<table id="example" class="table table-striped" style="width:100%">
+			<table id="example" class="table">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -64,5 +64,4 @@
 			});
 		</script>
 	</body>
-
 </html>
