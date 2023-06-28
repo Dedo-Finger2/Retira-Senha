@@ -13,9 +13,9 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
 
 ?>
 
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
+<div class="container">
+    <div class="card">
+        <div class="card-body">
     <h1>Senhas disponiveis</h1>
 <form action="senhasFiltradas.php" method="post">
 
