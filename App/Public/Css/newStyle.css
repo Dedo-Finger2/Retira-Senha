@@ -42,3 +42,15 @@ body {
 .image-wrapper img {
     max-width: 100%;
 }
+
+.custom-select-width {
+    width: 20%; /* Defina a largura desejada */
+  }
+
+  .custom-select-width2 {
+    width: 7%; /* Defina a largura desejada */
+  }
+
+.card {
+    box-shadow: 0px 4px 20px 0 rgba(0, 0, 0, 0.2);  /*(classe-bootstrap) Div card adiciona uma sombra*/
+} 
