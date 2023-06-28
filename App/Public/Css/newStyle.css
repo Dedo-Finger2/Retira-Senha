@@ -42,3 +42,11 @@ body {
 .image-wrapper img {
     max-width: 100%;
 }
+
+.custom-select-width {
+    width: 20%; /* Defina a largura desejada */
+  }
+
+  .custom-select-width2 {
+    width: 7%; /* Defina a largura desejada */
+  }
