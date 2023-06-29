@@ -10,17 +10,24 @@ class ControllerTurma
     /**
      * Esse método coleta os turnos da consulta do Model e põe eles dentro de um array menor
      * contendo só os turnos mesmo
+     * @return array - Turnos disponíveis no banco de dados
      */
     public function getTurnos()
     {
+        /**
+         * Array que vai guardar os turnos retornados pelo método do Model Turma
+         */
         $turnosArray = [];
         $turnos = (new ModelTurma())->returnTurnos();
 
+        /**
+         * Para array de turnos como $turno, empurre no array $turnosArray o valor presente no atributo turno da variável $turno
+         */
         foreach ($turnos as $turno) {
             array_push($turnosArray, $turno->turno);
         }
 
-        return $turnosArray;
+        return $turnosArray; // Retorna os turnos do banco
     }
 
     /**
