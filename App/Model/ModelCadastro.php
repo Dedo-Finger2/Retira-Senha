@@ -62,21 +62,19 @@ class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Dat
              * o método tenta buscar no banco de dados o RG especificado, que nesse caso é o do usuário
              * fetch(true) retorna todos os resultados dentro de um array
              */
-            $verifyEmail = (new ModelCadastro())->find("email = '{$email}'")->fetch();
-            $verifySenha = (new ModelCadastro())->find("senha = '{$senha}'")->fetch();
+            $verifyUserEmail = (new ModelCadastro())->find("email = '{$email}' AND senha = '{$senha}'")->fetch();
             
             /**
              * Se as consultas acima der certo, então o usuário tem o rg cadastrado e o nome bate com o rg!
              * Se sim então retorne TRUE
              */
-            if ($verifyEmail && $verifySenha) {
+            if ($verifyUserEmail) {
                 return true;
             }
         } elseif (!empty($rg) && !empty($nome)) {
-            $verifyRg = (new ModelCadastro())->find("rg = '{$rg}'")->fetch();
-            $verifyNome = (new ModelCadastro())->find("nome = '{$nome}'")->fetch();
+            $verifyUserRg = (new ModelCadastro())->find("rg = '{$rg}' AND nome = '{$nome}'")->fetch();
             
-            if ($verifyRg && $verifyNome) {
+            if ($verifyUserRg) {
                 return true;
             }
         }
