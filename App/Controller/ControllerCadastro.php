@@ -128,4 +128,20 @@ class ControllerCadastro
         }
         return $this;
     }
+
+    /**
+     * Esse método vai mostrar o nome do usuário na navbar
+     * @param int $idUsuario - Id do usuário
+     * @return string - Nome do usuário
+     */
+    public function showName($idUsuario)
+    {
+        try {
+            $usuario = (new ModelCadastro())->showUserName($idUsuario);
+            return $usuario->nome;
+        } catch (Exception $e) {
+            echo "Error: ". $e->getMessage();
+            return false;
+        }
+    }
 }

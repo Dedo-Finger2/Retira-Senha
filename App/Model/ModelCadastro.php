@@ -133,5 +133,16 @@ class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Dat
         session_destroy();
         return $this;
     }
+
+    /**
+     * Esse método vai ser responsável apenas por mostrar o nome do usuário na navbar
+     * @param int $idUsuario - ID do usuário que vai ser mostrado na tela
+     */
+    public function showUserName($idUsuario)
+    {
+        $usuario = (new ModelCadastro())->find("cod_cadastro = '$idUsuario'")->fetch();
+
+        return $usuario;
+    }
 }
 

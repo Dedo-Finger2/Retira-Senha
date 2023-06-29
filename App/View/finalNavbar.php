@@ -1,3 +1,11 @@
+<?php
+use App\Controller\ControllerCadastro;
+    require __DIR__."/../../vendor/autoload.php";
+    $idUsuario = $_SESSION['idUsuario'];
+
+    $usuario = (new ControllerCadastro())->showName($idUsuario);
+
+?>
 <nav class="navbar navbar-expand-lg bg-nosso-azul border-bottom border-bottom-dark " data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Retira Senha</a>
@@ -9,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Suas senhas</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">Minhas senhas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="filtragemDeSenhas.php">Vagas disponiveis</a>
@@ -17,7 +25,13 @@
             </ul>
             <!-- Nome do usuário -->
             <div class="text-white me-3">
-                Nome Usuário
+                <?php
+                    if ($usuario) {
+                        echo "<strong>".$usuario."</strong>";
+                    } else {
+                        echo "Usuário";
+                    }
+                ?>
             </div>
             <form action="../Controller/cadastroHandler.php" method="post">
                 <button type="submit" class="btn btn-danger">Log-off</button>
