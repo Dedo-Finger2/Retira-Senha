@@ -2,7 +2,7 @@
     /**
      * "Inicia a sessão e verifica
      * Se a variável de sessão RG for varzia, significa que o usuário é sabido demais e ta tentando acessar essa página
-     * sem se logar antes! Se for caso, então mandar ele de volta pra tela de login" - Greg
+     * sem se logar antes! Se for caso, então mandar ele de volta pra tela de login" - Gregin
      */
     session_start();
 
