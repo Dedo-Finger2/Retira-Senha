@@ -16,6 +16,9 @@ $senhasUsuario = (new ControllerSenha())->listUserPasswords($_SESSION['idUsuario
 <?php
 if (is_array($senhasUsuario)) {
 ?>
+<div class="container">
+<div class="card">
+    <div class="card-body">
     <table class="table">
         <!-- "Tabela com as senhas do usuário, se o mesmo não tiver senha nenhuma uma mensagem deve aparecer informando isso no lugar da tabela" - Greg -->
         <thead> <!-- "Cabeçalho da tabela" - Greg -->
@@ -59,4 +62,7 @@ if (is_array($senhasUsuario)) {
             </tr>
         </tfoot>
     </table>
+        </div>
+    </div>
+</div>
 <?php } ?>
