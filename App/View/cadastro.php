@@ -15,7 +15,7 @@
         <div class="container d-flex align-items-center justify-content-center">
             <!-- Container do formulário -->
             <div class="form-wrapper flex-row">
-                <h1 class="text-center">Teste commit</h1>
+                <h1 class="text-center">Cadastro</h1>
                 <form action="../Controller/cadastroHandler.php" method="post">
 
                     <div class="form-group">
