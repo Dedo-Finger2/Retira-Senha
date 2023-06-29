@@ -19,8 +19,8 @@
             <div class="text-white me-3">
                 Nome Usuário
             </div>
-            <form action="#" method="post">
-                <button type="button" class="btn btn-danger">Log-off</button>
+            <form action="../Controller/cadastroHandler.php" method="post">
+                <button type="submit" class="btn btn-danger">Log-off</button>
             </form>
             <!-- O action desse formulário tem que ir para o Controller/cadastroHandler.php -->
         </div>
