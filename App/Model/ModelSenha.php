@@ -33,8 +33,11 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
     public function listFilteredPasswords($turno = null, $idade_minima = null, $idade_maxima = null, $dias_aula = null)
     {
         /**
-         * Para cada dia selecionado criar uma query customizada que vai pegar o dia e as 3 primeiras letras dele
+         * Para cada dia selecionado criar uma query customizada que vai pegar o nome do Dia (SEGUNDA) e as 3 primeiras letras dele (SEG)
          * Se os dias de aula não forem nulos, ou seja, se o usuário escolher algum dia de semana, então fazer a query correspondente
+         * 
+         * A $clausulas_like guarda toda a verificação feita para cada dia selecionado, e então é feito um junção de cada validação em $clausulas_like separando elas com a palavra AND
+         * dessa forma formando uma super verificação com todos os dias e seperando cada verificação com um AND para então ser usado na query.
          */
         if ($dias_aula) {
             $clausulas_like = array();
@@ -43,7 +46,14 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
             }
             $clausulas_where = implode(" AND ", $clausulas_like);
 
-            $teste2 = $this->conn->query("SELECT 
+            /**
+             * Nessa query são feitas todas as fitragens necessárias e requisitadas pelo usuário
+             * na tela de filtragem de senhas. As fitragens são feitas com variáveis PHP
+             * inseridas em clausulas WHERE e AND para verificar exatamente oq o usuário pediu
+             * 
+             * A diferença é que aqui seria se o usuário escolher um dia específico para ter aulas
+             */
+            $queryComDiasDeAula = $this->conn->query("SELECT 
             turma.nome_turma, 
             modulo.situacao_modulo,
             curso.nome_curso,
@@ -61,7 +71,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
             INNER JOIN modulo ON modulo.cod_modulo = turma.cod_modulo
             INNER JOIN curso ON modulo.cod_curso = curso.cod_curso
             WHERE (senha.situacao = 'DISPONIVEL' OR senha.situacao != 'UTILIZADA')
-            AND turma.cod_periodo_letivo = '7'
+            AND turma.cod_periodo_letivo = (SELECT MAX(cod_periodo_letivo) FROM periodo_letivo)
             AND modulo.situacao_modulo = 'ATIVO'
             AND turma.turno LIKE '%$turno%'
             AND turma.idade_minima >= $idade_minima
@@ -70,13 +80,16 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
             GROUP BY turma.nome_turma
             ");
 
-            return $teste2->fetchAll();
+            return $queryComDiasDeAula->fetchAll();
         }
 
         /**
          * Query sem os dias da semana selecionado
+         * Nessa query são feitas todas as fitragens necessárias e requisitadas pelo usuário
+         * na tela de filtragem de senhas. As fitragens são feitas com variáveis PHP
+         * inseridas em clausulas WHERE e AND para verificar exatamente oq o usuário pediu
          */
-        $teste2 = $this->conn->query("SELECT 
+        $querySemDiasDeAula = $this->conn->query("SELECT 
         turma.nome_turma, 
         modulo.situacao_modulo,
         curso.nome_curso,
@@ -94,7 +107,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         INNER JOIN modulo ON modulo.cod_modulo = turma.cod_modulo
         INNER JOIN curso ON modulo.cod_curso = curso.cod_curso
         WHERE (senha.situacao = 'DISPONIVEL' OR senha.situacao != 'UTILIZADA')
-        AND turma.cod_periodo_letivo = '7'
+        AND turma.cod_periodo_letivo = (SELECT MAX(cod_periodo_letivo) FROM periodo_letivo)
         AND modulo.situacao_modulo = 'ATIVO'
         AND turma.turno LIKE '%$turno%'
         AND turma.idade_minima >= $idade_minima
@@ -102,7 +115,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         GROUP BY turma.nome_turma
         ");
 
-        return $teste2->fetchAll();
+        return $querySemDiasDeAula->fetchAll();
     }
 
     /**
@@ -113,9 +126,12 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      */
     public function listUserPasswords($idUsuario)
     {
-        $idUsuario = $_SESSION['idUsuario'];
-
-        $query3 = $this->conn->query("SELECT 
+        /**
+         * Query que seleciona algumas informações das senhas filtrando apenas as senhas
+         * que possuem um usuário atrelado a elas, isso pode se verificado com a FK que
+         * criamos na tabela senha (cod_cadastro) que recebe o iD do usuário dono da senha
+         */
+        $senhasUsuario = $this->conn->query("SELECT 
         curso.nome_curso,
         senha.autenticacao,
         senha.validade,
@@ -127,7 +143,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         WHERE senha.cod_cadastro = '$idUsuario'
         ");
 
-        return $query3->fetchAll();
+        return $senhasUsuario->fetchAll(); // Retorna um array com todas as senhas do usuário
     }
 
     /**
@@ -152,17 +168,25 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * esse método vai garantir o usuário seja dono da senha que quis pegar, podemos mudar
      * a SITUACAO da senha e também associar o ID do usuário a ela.
      * @param int $idUsuario - ID do usuário que está pegando a senha
-     * @param int $nomeSenha - Autenticacao da senha escolhida
+     * @param string $nomeSenha - Autenticacao da senha escolhida
      * @return ModelSenha
      */
     public function claimPassword($idUsuario, $nomeSenha)
     {
+        /**
+         * Encontra a senha pelo nome dela (autenticacao)
+         */
         $senhaSelecionada = (new ModelSenha())->find("autenticacao = '$nomeSenha'")->fetch();
 
+        /**
+         * Então é atribuido à coluna cod_cadastro dela (um fk feito por nós) o id do usuário
+         * que pegou a senha
+         * e também a SITUACAO da senha é colocada como UTILIZADA
+         */
         $senhaSelecionada->cod_cadastro = $idUsuario;
         $senhaSelecionada->situacao = 'UTILIZADA';
 
-        $senhaSelecionada->save();
+        $senhaSelecionada->save(); // Salvando modificações no banco
 
         return $senhaSelecionada;
     }

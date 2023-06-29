@@ -3,12 +3,20 @@
 require __DIR__."/../../vendor/autoload.php";
 
 use App\Model\ModelSenha;
+use App\Controller\ControllerSenha;
 
 /**
  * $senhas representa as senhas filtradas, cada parâmetro representa um select na tela de filtragem de senhas
  * Atualmente em fase de testes, por isso tem o print_r ali
+ * Se o usuário não marcar nenhum dia específico então não usar o array com os dias pq ele não vai existir se o usário não marcar nada,
+ * se o usuário marcar, então o array existe, logo usar ele no método.
+ * Se não, passar um null no lugar dele.
  */
-$senhas = (new ModelSenha())->listFilteredPasswords($_POST['turno'], $_POST['idadeMinima'], $_POST['idadeMaxima'], $_POST['dias']);
+if (isset($_POST['dias'])) {
+    $senhas = (new ControllerSenha())->listPasswords($_POST);
+}
+
+$senhas = (new ControllerSenha())->listPasswords($_POST);
 
 //print_r($senhas);
 

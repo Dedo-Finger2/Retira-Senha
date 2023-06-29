@@ -24,7 +24,8 @@
         <?php require_once("finalNavbar.php"); ?>
     </head>
     <body>
-        <h1>Suas senhas</h1>
+        <h1 class="text-center mt-5">Suas senhas</h1>
+        <h2 class="text-center">Aqui você pode ver as senhas cadastradas no seu nome.</h2>
         <!-- Tabela com as senhas do usuário -->
         <?php require_once ("../Controller/tabelaSuasSenhas.php"); ?>
 

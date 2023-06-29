@@ -1,16 +1,14 @@
 <?php 
-
 session_start();
 
 require __DIR__."/../../vendor/autoload.php";
 
-use App\Model\ModelSenha;
-
+use App\Controller\ControllerSenha;
 
 if (isset($_POST)) {
     switch ($_POST['acao']) {
         case 'claimPassword':
-            $senhaSelecionada = (new ModelSenha())->claimPassword($_SESSION['idUsuario'],$_POST['senha']);
+            $senhaSelecionada = (new ControllerSenha())->claimPassword($_SESSION['idUsuario'], $_POST['senha']);
             header("Location: ../View/filtragemDeSenhas.php?senhaObtida=true");
         break;
         
