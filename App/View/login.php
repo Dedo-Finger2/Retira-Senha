@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="../Public/Css/newStyle.css">
         <title>Login</title>
         <!--NAVBAR PROVISÓRIA-->
-        <?php require_once("navbar.php"); ?>
+        <?php //require_once("navbar.php"); ?>
     </head>
     <body>
         <!-- Container que engloba os outros dois: Imagem e formulário -->

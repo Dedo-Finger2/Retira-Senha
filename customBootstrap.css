@@ -1,7 +1,0 @@
-:root {
-    --meu-azul: #455ac0;
-}
-.bg-nosso-azul {
-    background-color: var(--meu-azul);
-    border-color: var(--meu-azul);
-}    

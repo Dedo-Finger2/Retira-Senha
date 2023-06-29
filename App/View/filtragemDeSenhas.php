@@ -4,14 +4,13 @@
  * Se a variável de sessão RG for varzia, significa que o usuário é sabido demais e ta tentando acessar essa página
  * sem se logar antes! Se for caso, então mandar ele de volta pra tela de login" - Greg
  * Comentei o sistema de verificação só pra ver a tela enquanto edito - leone
-
+ */
 session_start();
 
 if (!isset($_SESSION['rg'])) {
     header('Location: login.php');
     exit();
 }
-*/
 
 $exibirModal = isset($_GET['modal']);
 ?>
@@ -25,22 +24,18 @@ $exibirModal = isset($_GET['modal']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../Public/Css/newStyle.css">
+    <link rel="stylesheet" href="../Public/Css/style.css">
+    <link rel="stylesheet" href="../Public/Css/customBootstrap.css">
     <title>Filtragem de senhas</title>
 
     <!--NAVBAR PROVISÓRIA-->
-    <?php require_once("navbar.php"); ?>
+    <?php require_once("finalNavbar.php"); ?>
 </head>
 
 <body>
-
-
-    
+  
     <?php require_once("../Controller/tabelaFiltragemDeSenhas.php") ?>
-
-    <div class="position-relative">
-    <div class="position-absolute top-50 start-100 translate-middle">
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
@@ -59,7 +54,6 @@ $exibirModal = isset($_GET['modal']);
             }
         });
     </script>
-
 </body>
 
 </html>

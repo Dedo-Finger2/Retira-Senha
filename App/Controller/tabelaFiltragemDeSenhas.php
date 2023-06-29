@@ -12,16 +12,16 @@ $idadeMinima = (new ControllerTurma())->getIdadesMinimas();
 $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
 
 ?>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
 
-<div class="container">
-    <div class="card">
-        <div class="card-body">
-    <h1>Senhas disponiveis</h1>
+            <h1>Senhas disponiveis</h1>
 <form action="senhasFiltradas.php" method="post">
 
     <label>Turno</label> <!-- "Nome do input" - Greg -->
-    <select class="form-select form-select-sm custom-select-width" aria-label="Default select example" name="turno"> <!-- "Select" - Greg -->
-       <?php
+    <select name="turno"> <!-- "Select" - Greg -->
+        <?php
             foreach ($turnos as $turno) {
                 ?>
                     <option value="<?= $turno ?>"><?=$turno?></option> <!-- "Dados do banco serão inseridos aqui sempre dentro de um <option></option>" - Greg -->
@@ -29,12 +29,10 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
             }
         ?>
     </select>
-    
-      
 
     <label>Faixa etária</label>
     De
-    <select class="form-select form-select-sm custom-select-width2" name="idadeMinima">
+    <select name="idadeMinima">
         <?php
             foreach ($idadeMinima as $idade) {
                 ?>
@@ -43,8 +41,8 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
             }
         ?>
     </select>
-    até
-    <select class="form-select form-select-sm custom-select-width2" name="idadeMaxima">
+    anos até
+    <select name="idadeMaxima">
         <?php
             foreach ($idadeMaxima as $idade) {
                 ?>
@@ -52,18 +50,18 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
                 <?php
             }
         ?>
-        
     </select>
-    anos
- 
-    <br> <!-- "Quebra de linha pq não aguentei o agrupamento disso tudo kk" - Greg -->
+
+    <br><br> <!-- "Quebra de linha pq não aguentei o agrupamento disso tudo kk" - Greg -->
+    
     <!--
         "O nome desses checkbox é o mesmo porque assim eles são tratados como um array!
         Com isso vamos poder saber quais dias da semana o usuário escolheu e filtrar as senhas" - Greg
     -->
 
     <!-- Checkbox -->
-
+                
+    <div class="col-md-6">
     <h3>Dias da semana:</h3>
 
     <div class="form-check form-check-inline">
@@ -97,9 +95,9 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
     </div>
 
     <button type="submit" class="btn btn-primary">Filtrar senhas</button>
+    
             </div>
         </div>
     </div>
-</form>
-</div>
-
+    </form>
+    </div>
