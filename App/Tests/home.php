@@ -43,95 +43,17 @@
 								<td>2023/01/02</td>
 								<td>$320,800</td>
 							</tr>
-							<tr>
-								<td>Cris</td>
-								<td>Deput boss</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/02/01</td>
-								<td>$170,750</td>
-							</tr>
-							<tr>
-								<td>Greg</td>
-								<td>Ceo</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/01/02</td>
-								<td>$320,800</td>
-							</tr>
-							<tr>
-								<td>Cris</td>
-								<td>Deput boss</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/02/01</td>
-								<td>$170,750</td>
-							</tr>
-							<tr>
-								<td>Greg</td>
-								<td>Ceo</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/01/02</td>
-								<td>$320,800</td>
-							</tr>
-							<tr>
-								<td>Cris</td>
-								<td>Deput boss</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/02/01</td>
-								<td>$170,750</td>
-							</tr>
-							<tr>
-								<td>Greg</td>
-								<td>Ceo</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/01/02</td>
-								<td>$320,800</td>
-							</tr>
-							<tr>
-								<td>Cris</td>
-								<td>Deput boss</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/02/01</td>
-								<td>$170,750</td>
-							</tr>
-							<tr>
-								<td>Greg</td>
-								<td>Ceo</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/01/02</td>
-								<td>$320,800</td>
-							</tr>
-							<tr>
-								<td>Cris</td>
-								<td>Deput boss</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/02/01</td>
-								<td>$170,750</td>
-							</tr>
-							<tr>
-								<td>Greg</td>
-								<td>Ceo</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/01/02</td>
-								<td>$320,800</td>
-							</tr>
-							<tr>
-								<td>Cris</td>
-								<td>Deput boss</td>
-								<td>Camaçari</td>
-								<td>19</td>
-								<td>2023/02/01</td>
-								<td>$170,750</td>
-							</tr>
 						</tbody>
+						<tfoot>
+							<tr>
+								<th>Nome do cidadão</th>
+								<th>Posição</th>
+								<th>Escritório (Local)</th>
+								<th>Idade</th>
+								<th>Data de início</th>
+								<th>Salário</th>
+							</tr>
+						</tfoot>
 					</table>
 				</div>
 			</section>
