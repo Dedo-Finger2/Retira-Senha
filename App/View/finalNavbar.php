@@ -6,6 +6,11 @@ use App\Controller\ControllerCadastro;
     $usuario = (new ControllerCadastro())->showName($idUsuario);
 
 ?>
+    <link rel="icon"
+        type="image/png"
+        href="../Public/img/Logo-icon.png">
+    </link>
+
 <nav class="navbar navbar-expand-lg bg-nosso-azul border-bottom border-bottom-dark " data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Retira Senha</a>
