@@ -154,18 +154,25 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * ou seja, se a senha não tiver nenhum usuário cadastrado com seu nome então ela
      * pode ser pega por outro usuário e assim sua situacao seria setada para UTILIZADA e
      * cod_cadastro teria o ID do usuário dono dessa senha.
-     * @param int $idUsuario - ID do usuário que quer devolver a senha
      * @param int $idSenha - ID da senha que vai ser devolvida
      * @return ModelSenha
      */
-    public function returnPassword($idUsuario = null, $idSenha)
+    public function returnPassword($idSenha)
     {
+        /**
+         * Localizando a senha pelo ID dela e retornando ela como um array
+         */
         $senhaDevolvida = (new ModelSenha())->find("cod_senha = '$idSenha'")->fetch();
 
+        /**
+         * Setando o valor da situacao da senha para DISPONIVEL e deixando nulo
+         * o campo cod_cadastro (nossa FK que possui o ID do usuário dono da senha)
+         * Dessa forma a senha vai sumir da tabela minhas senhas e vai aparecer como opção no sistema
+         */
         $senhaDevolvida->situacao = "DISPONIVEL";
         $senhaDevolvida->cod_cadastro = null;
 
-        $senhaDevolvida->save();
+        $senhaDevolvida->save(); // Salvando mudanças no banco de dados
 
         //var_dump($senhaDevolvida);
 

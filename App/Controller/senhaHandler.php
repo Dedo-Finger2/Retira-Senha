@@ -27,7 +27,7 @@ if (isset($_POST['acao'])) {
     switch ($_GET) {
         case isset($_GET['devolverSenha']):
             $idSenha = $_GET['devolverSenha'];
-            $senhaDevolvida = (new ModelSenha())->returnPassword(null, $idSenha);   
+            $senhaDevolvida = (new ModelSenha())->returnPassword($idSenha);   
             header("Location: ../View/index.php");
         break;
         

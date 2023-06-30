@@ -1,3 +1,12 @@
+<?php
+
+require __DIR__ . "/../../vendor/autoload.php";
+
+use App\Controller\ControllerSenha;
+
+$senhasUsuario = (new ControllerSenha())->listUserPasswords($_SESSION['idUsuario']);
+
+?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- Incluindo o DataTables -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css">
@@ -16,14 +25,39 @@
             </tr>
         </thead>
         <tbody>
+         <!-- 
+            Pega o resultado da consulta feita pelo método listFilteredPasswords e divide o grande array de resultados (senhas) em um array separado para cada um (senha) 
+            Tudo abaixo está dentro do loop foreach, então pra cada senha ele vai mostrar na tabela as resultados
+            Primeiro é meostrado o nome do curso, depois um select dentro de um formulário com as senhas do curso, logo após isso temos a faixa etária
+            e por fim um botão pra enviar a senha escolhida para outro arquivo
+            Tem também uns input hidden só pra passar mais informações sobre a senha escolhida
+        -->
+        <?php foreach ($senhas as $senha) { ?>
             <tr>
-                <td>Greg</td>
-                <td>Ceo</td>
-                <td>Camaçari</td>
-                <td>19</td>
-                <td>2023/01/02</td>
-                <td>$320,800</td>
+                <td class="row"><?= $senha->nome_curso ?></td>
+                <td>
+                    <form action="../Controller/senhaHandler.php" method="post">
+                        <select name="senha">
+                            <?php foreach (explode(', ', $senha->senhas) as $senhaOpcao) { ?> <!-- Divide as senhas que são uma string com todas elas separadas por vírgula -->
+                                <option value="<?= $senhaOpcao; ?>"><?= $senhaOpcao; ?></option> <!-- Senhas -->
+                            <?php } ?>
+                        </select>
+                </td>
+                <td><?= $senha->faixa_etaria ?></td> <!-- Faixa etária -->
+                <td><?= $senha->turno ?></td>
+                <td><?= $senha->dias_de_aula ?></td>
+                <td>
+                    <input type="hidden" name="curso" value="<?= $senha->nome_curso ?>"> <!-- Nome do curso -->
+                    <input type="hidden" name="turma" value="<?= $senha->nome_turma ?>"> <!-- Nome da turma -->
+                    <input type="hidden" name="quantidadeAluno" value="<?= $senha->quantidade_aluno ?>"> <!-- Quantidade de alunos da turma -->
+                    <input type="hidden" name="turno" value="<?= $senha->turno ?>"> <!-- Turno da turma -->
+                    <input type="hidden" name="idSenha" value="<?= $senha->cod_senha ?>"> <!-- Código da senha escohida -->
+                    <button type="submit" name="acao" value="claimPassword">Escolher senha</button>
+                    <button type="submit" name="acao" value="teste">Teste</button>
+                </form>
+                </td>
             </tr>
+    <?php } ?>
         </tbody>
         <tfoot>
             <tr>

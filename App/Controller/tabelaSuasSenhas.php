@@ -16,53 +16,81 @@ $senhasUsuario = (new ControllerSenha())->listUserPasswords($_SESSION['idUsuario
 <?php
 if (is_array($senhasUsuario)) {
 ?>
-<div class="container">
-<div class="card">
-    <div class="card-body">
-    <table class="table">
-        <!-- "Tabela com as senhas do usuário, se o mesmo não tiver senha nenhuma uma mensagem deve aparecer informando isso no lugar da tabela" - Greg -->
-        <thead> <!-- "Cabeçalho da tabela" - Greg -->
+<div class="container d-flex justify-content-center mt-5 mb-5 align-items-center">
+    <table id="example" class="table table-striped table-bordered">
+        <thead>
             <tr>
-                <th>Senha</th>
-                <th>Validade</th>
-                <th>Curso</th>
-                <th>Opções</th>
+                <th>Nome do cidadão</th>
+                <th>Posição</th>
+                <th>Escritório (Local)</th>
+                <th>Idade</th>
+                <th>Data de início</th>
+                <th>Salário</th>
             </tr>
         </thead>
-        <tbody> <!-- "Corpo da tabela, os dados entram aqui separados por <tr> e cada linha sendo um <td>" - Greg -->
+        <tbody>
+        <?php
+            foreach ($senhasUsuario as $senha) { ?>
+            <tr>
+                <td>
+                    <?= $senha->autenticacao ?>
+                </td>
+                <td>
+                    <?= $senha->validade ?>
+                </td>
+                <td>
+                    <?= $senha->nome_curso ?>
+                </td>
+                <td>
+                    <a class="btn btn-danger"
+                        href="../Controller/senhaHandler.php?devolverSenha=<?= $senha->cod_senha ?>">Devolver senha</a>
+                    <a class="btn btn-primary"
+                        href="../Controller/senhaHandler.php?maisInformacoes=<?= $senha->cod_senha ?>">Mais informações</a>
+                </td>
+            </tr>
             <?php
-                    foreach ($senhasUsuario as $senha) { ?>
-                    <tr>
-                        <td>
-                            <?= $senha->autenticacao ?>
-                        </td>
-                        <td>
-                            <?= $senha->validade ?>
-                        </td>
-                        <td>
-                            <?= $senha->nome_curso ?>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger"
-                                href="../Controller/senhaHandler.php?devolverSenha=<?= $senha->cod_senha ?>">Devolver senha</a>
-                            <a class="btn btn-primary"
-                                href="../Controller/senhaHandler.php?maisInformacoes=<?= $senha->cod_senha ?>">Mais informações</a>
-                        </td>
-                    </tr>
-                    <?php
-                    }
+            }
         ?>
         </tbody>
-        <tfoot> <!-- "Rodapé da tabela, mesma coisa do cabeçalho só que embaixo kk" - Greg -->
+        <tfoot>
             <tr>
-                <th>Senha</th>
-                <th>Validade</th>
-                <th>Curso</th>
-                <th>Opções</th>
+                <th>Nome do cidadão</th>
+                <th>Posição</th>
+                <th>Escritório (Local)</th>
+                <th>Idade</th>
+                <th>Data de início</th>
+                <th>Salário</th>
             </tr>
         </tfoot>
     </table>
-        </div>
-    </div>
-</div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
+	<!-- Script para inicializar o DataTable -->
+	<script>
+		$(document).ready(function() {
+			$('#example').DataTable({
+				"paging": true,
+				"lengthChange": false,
+				"searching": true,
+				"ordering": true,
+				"info": true,
+				"autoWidth": false,
+				"lengthMenu": [[7, 25, 50, -1], [10, 25, 50, "Mostrar tudo"]],
+				"language": {
+					"search": "Pesquisar:",
+					"paginate": {
+						"previous": "Anterior",
+						"next": "Próximo"
+					},
+					"info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+					"infoEmpty": "Mostrando 0 a 0 de 0 registros",
+					"infoFiltered": "(filtrado de _MAX_ registros no total)"
+				}
+			});
+
+			// Adiciona classe btn-3d aos botões de anterior e próximo do paginador
+			$('.paginate_button.previous, .paginate_button.next').addClass('btn-3d');
+		});
+    </script>
 <?php } ?>
