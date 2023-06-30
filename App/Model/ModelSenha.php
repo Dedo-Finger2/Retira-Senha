@@ -158,9 +158,18 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
      * @param int $idSenha - ID da senha que vai ser devolvida
      * @return ModelSenha
      */
-    public function returnPassword($idUsuario, $idSenha)
+    public function returnPassword($idUsuario = null, $idSenha)
     {
-        # Código aqui...
+        $senhaDevolvida = (new ModelSenha())->find("cod_senha = '$idSenha'")->fetch();
+
+        $senhaDevolvida->situacao = "DISPONIVEL";
+        $senhaDevolvida->cod_cadastro = null;
+
+        $senhaDevolvida->save();
+
+        //var_dump($senhaDevolvida);
+
+        return $senhaDevolvida;
     }
     
     /**

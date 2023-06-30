@@ -1,4 +1,5 @@
 <?php 
+use App\Model\ModelSenha;
 session_start();
 
 require __DIR__."/../../vendor/autoload.php"; // Autoload
@@ -11,7 +12,7 @@ use App\Controller\ControllerSenha;
  * 
  * Se for um GET e não POST, então escolher o que fazer a depender de qual valor é o GET
  */
-if (isset($_POST)) {
+if (isset($_POST['acao'])) {
     switch ($_POST['acao']) {
         case 'claimPassword':
             $senhaSelecionada = (new ControllerSenha())->claimPassword($_SESSION['idUsuario'], $_POST['senha']);
@@ -19,14 +20,15 @@ if (isset($_POST)) {
         break;
         
         default:
-            header("Location: ../View/filtragemDeSenhas.php?error=true");
+            echo "A";
         break;
     }
 } elseif (isset($_GET)) {
     switch ($_GET) {
         case isset($_GET['devolverSenha']):
             $idSenha = $_GET['devolverSenha'];
-            echo "Devolveu a senha $idSenha";    
+            $senhaDevolvida = (new ModelSenha())->returnPassword(null, $idSenha);   
+            header("Location: ../View/index.php");
         break;
         
         case isset($_GET['maisInformacoes']):
