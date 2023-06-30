@@ -30,7 +30,7 @@
         <div class="container">
             <h1 class="text-center mt-5">Escolha sua senha</h1>
             <h2 class="text-center">Aqui você poderá escolher senhas para o curso desejado.</h2>
-            <?php require_once("../Controller/tabelaSenhasFiltradas.php") ?>
+            <?php require_once("../Controller/tabelaDataTables.php") ?>
         </div>
         <?php require_once("footer.php");?>
     </body>
