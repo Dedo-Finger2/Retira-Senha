@@ -1,17 +1,19 @@
 <?php
 
-require __DIR__ . "/../../vendor/autoload.php";
+require __DIR__ . "/../../vendor/autoload.php"; // Autoload
 
 use App\Controller\ControllerSenha;
 
-$senhasUsuario = (new ControllerSenha())->listUserPasswords($_SESSION['idUsuario']);
+$senhasUsuario = (new ControllerSenha())->listUserPasswords($_SESSION['idUsuario']); // Pegando as senhas do usuário pelo id dele guardado na sessão atual
 
 ?>
+<!-- Css do bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- Incluindo o DataTables -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css">
 <link rel="stylesheet" href="../Public/Css/customBootstrap.css">
 
+<!-- Tabela -->
 <div class="container d-flex justify-content-center mt-5 mb-5 align-items-center">
     <table id="example" class="table table-striped table-bordered">
         <thead>
@@ -53,7 +55,6 @@ $senhasUsuario = (new ControllerSenha())->listUserPasswords($_SESSION['idUsuario
                     <input type="hidden" name="turno" value="<?= $senha->turno ?>"> <!-- Turno da turma -->
                     <input type="hidden" name="idSenha" value="<?= $senha->cod_senha ?>"> <!-- Código da senha escohida -->
                     <button type="submit" name="acao" value="claimPassword">Escolher senha</button>
-                    <button type="submit" name="acao" value="teste">Teste</button>
                 </form>
                 </td>
             </tr>

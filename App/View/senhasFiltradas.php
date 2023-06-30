@@ -28,24 +28,24 @@ if (!isset($_SESSION['rg'])) {
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../Public/Css/customBootstrap.css">
     <title>Senhas Filtradas</title>
-    <!--NAVBAR PROVISÓRIA-->
+    <!--NAVBAR-->
     <?php require_once("finalNavbar.php"); ?>
 </head>
 
 <body>
+    <!-- Logo na página -->
+    <div class="rounded d-flex align-items-center justify-content-center">
+        <img src="../Public/img/Logo-texto-preto.png" class="mt-5" style="width: 150px;" alt="Placeholder image">
+    </div>
+    
+    <!-- Tabela -->
+    <?php require_once("../Controller/tabelaSenhasFiltradas.php") ?>
 
-    <!-- TABELA PROVISÓRIA -->
-
-        <div class="rounded d-flex align-items-center justify-content-center">
-            <img src="../Public/img/Logo-texto-preto.png" class="mt-5" style="width: 150px;" alt="Placeholder image">
-        </div>
-        <?php require_once("../Controller/tabelaSenhasFiltradas.php") ?>
-
-
+    <!-- Script para inicializar o DataTable -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
-    <!-- Script para inicializar o DataTable -->
+    
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
@@ -76,5 +76,4 @@ if (!isset($_SESSION['rg'])) {
     <!-- FOOTER -->
     <?php require_once("footer.php"); ?>
 </body>
-
 </html>

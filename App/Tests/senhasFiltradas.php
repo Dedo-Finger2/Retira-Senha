@@ -1,6 +1,10 @@
 <?php
 
-require_once __DIR__."/../../vendor/autoload.php";
+/**
+ * Testando a filtragem das senhas
+ */
+
+require_once __DIR__."/../../vendor/autoload.php"; // Autoload
 
 use App\Model\ModelSenha;
 

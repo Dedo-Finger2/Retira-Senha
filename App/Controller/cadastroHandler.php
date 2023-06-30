@@ -32,7 +32,6 @@ switch (intval($acao)) {
     break;
     /**
      * O botão de logoff é um formulário sem indice, então se for 0 o usuário quer sair do sistema
-     * [OBS]: Talvez fazer uma verificação se o que foi apertado foi o botão de log-off mesmo seria mais interessante
      */
     case 0:
         $logOffUser = (new ControllerCadastro())->logOff(); // Executa o método de logOff

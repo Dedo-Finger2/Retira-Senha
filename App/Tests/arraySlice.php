@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Testando a função array_slice pra fazer melhor o filtro de dias de aula
+ */
 $dias_semana = array("segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo");
 
 $selecionados = array("segunda", "terça", "quarta");

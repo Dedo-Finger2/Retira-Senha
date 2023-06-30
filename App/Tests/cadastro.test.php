@@ -1,6 +1,10 @@
 <?php 
 
-require __DIR__."/../../vendor/autoload.php";
+/**
+ * Testes com os cadastros
+ */
+
+require __DIR__."/../../vendor/autoload.php"; // Autoload
 
 use App\Model\ModelCadastro;
 use App\Controller\ControllerCadastro;

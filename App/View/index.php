@@ -25,25 +25,30 @@ if (!isset($_SESSION['rg'])) {
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../Public/Css/customBootstrap.css">
     <title>Minhas senhas</title>
-    <!--NAVBAR PROVISÓRIA-->
+    <!--NAVBAR-->
     <?php require_once("finalNavbar.php"); ?>
 </head>
 
 <body>
+    <!-- Logo na página -->
     <div class="rounded d-flex align-items-center justify-content-center">
         <img src="../Public/img/Logo-texto-preto.png" class="mt-5" style="width: 150px;" alt="Placeholder image">
     </div>
+    
+    <!-- Título e subtítulo -->
     <h1 class="text-center mt-5">Minhas senhas</h1>
     <h2 class="text-center">Aqui você pode ver as senhas cadastradas no seu nome.</h2>
+    
     <!-- Tabela com as senhas do usuário -->
     <?php require_once("../Controller/tabelaSuasSenhas.php"); ?>
 
     <!-- Footer -->
     <?php require_once("footer.php"); ?>
+
+    <!-- Script para inicializar o DataTable -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
-    <!-- Script para inicializar o DataTable -->
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
@@ -70,5 +75,4 @@ if (!isset($_SESSION['rg'])) {
         });
     </script>
 </body>
-
 </html>

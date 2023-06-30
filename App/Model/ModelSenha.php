@@ -3,11 +3,11 @@
 namespace App\Model; // "Namespace da classe (localização dela)" - Greg
 
 use CoffeeCode\DataLayer\DataLayer; // "Chamando a classe Datalayer para servir como herança para a classe Senha" - Greg
-use CoffeeCode\DataLayer\Connect;
+use CoffeeCode\DataLayer\Connect; // "Chamando a calsse Connect do Datalayer para criamos queries customizadas" - Greg
 
 class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datalayer" - Greg
 {
-    private $conn;
+    private $conn; // Conexão vai ficar armazenada nesse atributo aqui oh
 
     /**
      * Construtor base, toda classe vai ter um igual
@@ -18,7 +18,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
     public function __construct()
     {
         parent::__construct("senha", [], "cod_senha", false);
-        $this->conn = Connect::getInstance();
+        $this->conn = Connect::getInstance(); // Estabelecendo conexão
     }
 
     /**
@@ -91,30 +91,30 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
              * inseridas em clausulas WHERE e AND para verificar exatamente oq o usuário pediu
              */
             $querySemDiasDeAula = $this->conn->query("SELECT 
-        turma.nome_turma, 
-        modulo.situacao_modulo,
-        curso.nome_curso,
-        turma.turno,
-        turma.dias_de_aula,
-        turma.nome_faixa_etaria as faixa_etaria,
-        turma.qtd_aluno as quantidade_aluno,
-        turma.idade_minima,
-        turma.idade_maxima,
-        senha.cod_senha,
-        COUNT(senha.cod_turma) as total_senhas,
-        GROUP_CONCAT(DISTINCT senha.autenticacao SEPARATOR ', ') as senhas
-        FROM turma 
-        INNER JOIN senha ON senha.cod_turma = turma.cod_turma
-        INNER JOIN modulo ON modulo.cod_modulo = turma.cod_modulo
-        INNER JOIN curso ON modulo.cod_curso = curso.cod_curso
-        WHERE (senha.situacao = 'DISPONIVEL' OR senha.situacao != 'UTILIZADA')
-        AND turma.cod_periodo_letivo = (SELECT MAX(cod_periodo_letivo) FROM periodo_letivo)
-        AND modulo.situacao_modulo = 'ATIVO'
-        AND turma.turno LIKE '%$turno%'
-        AND turma.idade_minima >= $idade_minima
-        AND turma.idade_maxima <= $idade_maxima
-        GROUP BY turma.nome_turma
-        ");
+            turma.nome_turma, 
+            modulo.situacao_modulo,
+            curso.nome_curso,
+            turma.turno,
+            turma.dias_de_aula,
+            turma.nome_faixa_etaria as faixa_etaria,
+            turma.qtd_aluno as quantidade_aluno,
+            turma.idade_minima,
+            turma.idade_maxima,
+            senha.cod_senha,
+            COUNT(senha.cod_turma) as total_senhas,
+            GROUP_CONCAT(DISTINCT senha.autenticacao SEPARATOR ', ') as senhas
+            FROM turma 
+            INNER JOIN senha ON senha.cod_turma = turma.cod_turma
+            INNER JOIN modulo ON modulo.cod_modulo = turma.cod_modulo
+            INNER JOIN curso ON modulo.cod_curso = curso.cod_curso
+            WHERE (senha.situacao = 'DISPONIVEL' OR senha.situacao != 'UTILIZADA')
+            AND turma.cod_periodo_letivo = (SELECT MAX(cod_periodo_letivo) FROM periodo_letivo)
+            AND modulo.situacao_modulo = 'ATIVO'
+            AND turma.turno LIKE '%$turno%'
+            AND turma.idade_minima >= $idade_minima
+            AND turma.idade_maxima <= $idade_maxima
+            GROUP BY turma.nome_turma
+            ");
 
             return $querySemDiasDeAula->fetchAll();
         }
@@ -210,6 +210,8 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
     }
 
     /**
+     * [OBS]: MÉTODO DEIXADO DE LADO POR NÃO SER NECESSÁRIO!
+     * 
      * Esse método será responsável por mostrar detalhes da senha que o usuário gostaria
      * de ver, isso pode ser uma opção dentro de uma tabela, assim o usuário vai poder ver
      * informações mais detalhadas da senha como: turno, faixa etária, etc.
@@ -222,6 +224,8 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
     }
 
     /**
+     * [OBS]: MÉTODO DEIXADO DE LADO POR NÃO SER NECESSÁRIO!
+     * 
      * Esse método será responsável por mostrar a senha numa tela branca, isso vai possibilitar
      * o usuário imprimir a senha se quiser. Essa também seria uma opção presente
      * numa tabela. {TALVEZ SEJA DESCARTADO} 

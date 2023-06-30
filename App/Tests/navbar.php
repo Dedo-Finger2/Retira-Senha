@@ -1,3 +1,4 @@
+<!-- "Produção da navbar final" - Joice -->
 <nav class="navbar navbar-expand-lg bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Retira Senha</a>

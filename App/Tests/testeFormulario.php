@@ -1,3 +1,5 @@
+<!-- Testando novo layout para o formulário de Filtragem de senhas -->
+
 <?php
 
 require __DIR__."/../../vendor/autoload.php";

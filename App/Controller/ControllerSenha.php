@@ -27,7 +27,7 @@ class ControllerSenha
             /**
              * Se existir o array $data['dias'], então fazer retornar os resultados
              * usando ele
-             * Senão, passar null no lugar dele e retornar dessa forma
+             * Senão, passar null no lugar dele e retornar dessa forma evitando aparecer warnnings pro usuário
              */
                 if (isset($data['dias'])) {
                     $senhas = (new ModelSenha())->listFilteredPasswords(

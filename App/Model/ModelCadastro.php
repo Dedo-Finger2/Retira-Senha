@@ -87,6 +87,7 @@ class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Dat
 
     /**
      * Esse método é responsável por retornar a lista de usuários do sistema
+     * [OBS]: MÉTODO DEIXADO DE LADO POR NÃO SER NECESSÁRIO!
      * @return array - Array com todos os usuários cadastrados no sistema
      */
     public function listAllUsers(): array
@@ -97,6 +98,7 @@ class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Dat
     /**
      * Esse método é responsável por atualizar credencias de um usuário já cadastrado
      * no sistema.
+     * [OBS]: MÉTODO DEIXADO DE LADO POR NÃO SER NECESSÁRIO!
      * @param array $nome - Novo nome do usuário
      * @param string $email - Novo email do usuário
      * @param string $senha - Nova senha do usuário
@@ -110,6 +112,7 @@ class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Dat
 
     /**
      * Esse método é responsável por deletar um usuário do sistema.
+     * [OBS]: MÉTODO DEIXADO DE LADO POR NÃO SER NECESSÁRIO!
      * @param int $idUsuario - ID do usuário que vai ser deletado
      */
     public function deleteUser($idUsuario): void
@@ -138,9 +141,12 @@ class ModelCadastro extends DataLayer // "Herdando funcionalidades da classe Dat
      */
     public function showUserName($idUsuario)
     {
+        /**
+         * Pega o usuário pelo ID dele
+         */
         $usuario = (new ModelCadastro())->find("cod_cadastro = '$idUsuario'")->fetch();
 
-        return $usuario;
+        return $usuario; // E então retorna ele
     }
 }
 

@@ -1,3 +1,5 @@
+<!-- Teste com o Datatables -->
+
 <!Doctype html>
 <html lang="pt-Br">
 	<head>

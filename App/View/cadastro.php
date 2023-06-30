@@ -31,8 +31,7 @@
 
                 <div class="form-group">
                     <label for="emailId">Email</label>
-                    <input type="email" name="email" class="form-control" id="emailId" placeholder="Digite seu email:"
-                        required>
+                    <input type="email" name="email" class="form-control" id="emailId" placeholder="Digite seu email:" required>
                 </div>
 
                 <div class="form-group">
@@ -42,10 +41,10 @@
                 </div>
 
                 <!-- 
-                        "Vai ser interessante esse input ser customizado, aceitar apenas um valor parecido com RG
-                        Tipo assim: 12.345.678-9
-                        Esse input deve colocar os pontos e hífen automaticamente, ou apenas recusar eles e aceitar apenas os números" - Greg
-                    -->
+                    "Vai ser interessante esse input ser customizado, aceitar apenas um valor parecido com RG
+                    Tipo assim: 12.345.678-9
+                    Esse input deve colocar os pontos e hífen automaticamente, ou apenas recusar eles e aceitar apenas os números" - Greg
+                -->
                 <div class="form-group">
                     <label for="rgId">RG</label>
                     <input type="text" name="rg" pattern="\d{2}\.\d{3}\.\d{3}-\d" class="form-control" id="rg"
@@ -55,7 +54,8 @@
                 </div>
 
                 <!-- Cadastrar e link para a tela de login -->
-                <button type="submit" class="btn btn-primary text-white">Cadastrar</button><br><br>
+                <button type="submit" class="btn btn-primary text-white">Cadastrar</button>
+                <br><br>
                 <a href="login.php">Já possui conta?</a>
             </form>
         </div>
@@ -64,8 +64,7 @@
         <div class="image-wrapper">
             <h1 class="text-center" id="bem-vindo">Bem vindo!!</h1>
             <p class="font-weight-light text-center">Para retirar uma senha de cursos da Cidade do Saber você deve se
-                cadastrar
-                no nosso site! Assim você pode evitar grandes filas e retirar uma senha digital.</p>
+                cadastrar no nosso site! Assim você pode evitar grandes filas e retirar uma senha digital.</p>
             <img src="../Public/img/webinar-animate.svg" class="img-fluid" alt="Imagem responsiva">
         </div>
     </div>
@@ -79,6 +78,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
         crossorigin="anonymous"></script>
+
     <!-- Script que auto completa o RG do usuário com pontos e hífen -->
     <script>
         const rgInput = document.getElementById('rg');
@@ -106,5 +106,4 @@
         });
     </script>
 </body>
-
 </html>

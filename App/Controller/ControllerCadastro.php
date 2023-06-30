@@ -136,9 +136,13 @@ class ControllerCadastro
      */
     public function showName($idUsuario)
     {
+        /**
+         * Tenta executar o método showUserName do ModelCadastro, se der probleminha
+         * guardar esse problema numa variável do tipo Execption $e
+         */
         try {
-            $usuario = (new ModelCadastro())->showUserName($idUsuario);
-            return $usuario->nome;
+            $usuario = (new ModelCadastro())->showUserName($idUsuario); // Pega o usuário (Wendson, nem pense em falar a palavra proibida)
+            return $usuario->nome; // Retorna o nome do usuário pego pelo método acima.
         } catch (Exception $e) {
             echo "Error: ". $e->getMessage();
             return false;

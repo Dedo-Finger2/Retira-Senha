@@ -13,31 +13,28 @@ use App\Controller\ControllerSenha;
  * Se for um GET e não POST, então escolher o que fazer a depender de qual valor é o GET
  */
 if (isset($_POST['acao'])) {
+
     switch ($_POST['acao']) {
-        case 'claimPassword':
+        case 'claimPassword': // Se o usuário quiser pegar uam senha...
             $senhaSelecionada = (new ControllerSenha())->claimPassword($_SESSION['idUsuario'], $_POST['senha']);
             header("Location: ../View/filtragemDeSenhas.php?senhaObtida=true");
         break;
         
         default:
-            echo "A";
+            echo "Vish, foi de Arembepe o sistema. Volte mais tarde.";
         break;
     }
 } elseif (isset($_GET)) {
+
     switch ($_GET) {
-        case isset($_GET['devolverSenha']):
+        case isset($_GET['devolverSenha']): // Se o usuário quiser devolver a senha...
             $idSenha = $_GET['devolverSenha'];
             $senhaDevolvida = (new ModelSenha())->returnPassword($idSenha);   
             header("Location: ../View/index.php");
         break;
-        
-        case isset($_GET['maisInformacoes']):
-            $idSenha = $_GET['maisInformacoes'];
-            echo "Mais info da senha $idSenha";
-        break;
 
         default:
-            echo "Vish, foi de Arembepe o sistema.";
+            echo "Vish, foi de Arembepe o sistema. Volte mais tarde.";
         break;
     }
 }

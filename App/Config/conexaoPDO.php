@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Constante de conexão com o banco de dados
+ */
 const DATA_LAYER_CONFIG = [
     "driver" => "mysql", // MariaDB usa o mesmo driver do mysql
     "host" => "localhost", // O host do banco

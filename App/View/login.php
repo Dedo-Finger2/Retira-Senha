@@ -18,9 +18,11 @@
 <body>
     <!-- Container que engloba os outros dois: Imagem e formulário -->
     <div class="container d-flex align-items-center justify-content-center">
+        
         <!-- Container do formulário -->
         <div class="form-wrapper flex-row">
             <h1 class="tittle-login text-center">Login</h1>
+            
             <!-- "Aqui vai ficar o formulário para login usuáros" - Greg -->
             <form action="../Controller/cadastroHandler.php" method="post">
                 <div class="form-group">
@@ -51,6 +53,7 @@
             <img src="../Public/img/college-students-animate.svg" alt="Imagem responsiva">
         </div>
     </div>
+    
     <!-- Scripts do bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
@@ -61,7 +64,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
         crossorigin="anonymous"></script>
-    <!-- Script que auto completa o RG do usuário com pontos e hífen -->
+    
+        <!-- Script que auto completa o RG do usuário com pontos e hífen -->
     <script>
         const rgInput = document.getElementById('rg');
         function formatarRG(valor) {
@@ -88,5 +92,4 @@
         });
     </script>
 </body>
-
 </html>

@@ -6,14 +6,15 @@ use App\Controller\ControllerCadastro;
     $usuario = (new ControllerCadastro())->showName($idUsuario);
 
 ?>
-    <link rel="icon"
-        type="image/png"
-        href="../Public/img/Logo-icon-blue.png">
-    </link>
+<!-- ícone da navbar -->
+<link rel="icon" type="image/png" href="../Public/img/Logo-icon-blue.png"></link>
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-nosso-azul border-bottom border-bottom-dark" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">Retira Senha</a>
+        <a class="navbar-brand" href="index.php">Retira Senha</a> <!-- Logo -->
+
+        <!-- Botão pra abrir e fechar ela quando estiver muito pequena a tela -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -28,6 +29,7 @@ use App\Controller\ControllerCadastro;
                     <a class="nav-link active" href="filtragemDeSenhas.php">Vagas disponiveis</a>
                 </li>
             </ul>
+
             <!-- Nome do usuário -->
             <div class="text-white me-3">
                 <?php
@@ -38,6 +40,7 @@ use App\Controller\ControllerCadastro;
                     }
                 ?>
             </div>
+            <!-- Log-off -->
             <form action="../Controller/cadastroHandler.php" method="post">
                 <button type="submit" class="btn btn-danger">Log-off</button>
             </form>

@@ -1,3 +1,5 @@
+<!-- Arembepe Power -->
+
 <form action="sistemaCompletoHandler.php" method="post">
     <button type="submit" name="pegarSenha" value="true">Pegar senha</button>
     <hr>

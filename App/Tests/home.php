@@ -1,4 +1,4 @@
-<!-- "Estrutura da home sem Bootstrap" - Joice a -->
+<!-- "Estrutura da home sem Bootstrap" - Joice Linda -->
 <!Doctype html>
 <html lang="pt-Br">
 	<head>
@@ -7,19 +7,20 @@
 		=1.0">
 		<meta http-equiv="X-UA-compatible" content="IE=Edge">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-		<title></title>
+		<title>Home</title>
 		<!-- Incluindo o Bootstrap 5 -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
 
 		<!-- Incluindo o DataTables -->
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css">
 		<link rel="stylesheet" href="../Public/Css/customBootstrap.css">
-	</head>
-	<body>
 		<header>
 			<!-- O require está importando o conteúdo do arquivo navbar -->
 			<?php require_once ("navbar.php") ?>
 		</header>
+	</head>
+
+	<body>
 		<article>
 			<section>
 				<div class="container d-flex justify-content-center mt-5 mb-5 align-items-center">
@@ -58,10 +59,13 @@
 				</div>
 			</section>
 		</article>
+
+		<!-- "Scripts" - Joice -->
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
-	<!-- Script para inicializar o DataTable -->
+		<script	script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+		<script	script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
+
+	<!-- "Script para inicializar o DataTable" - Joice -->
 	<script>
 		$(document).ready(function() {
 			$('#example').DataTable({
