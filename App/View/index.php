@@ -34,11 +34,11 @@ if (!isset($_SESSION['rg'])) {
     <div class="rounded d-flex align-items-center justify-content-center">
         <img src="../Public/img/Logo-texto-preto.png" class="mt-5" style="width: 150px;" alt="Placeholder image">
     </div>
-    
+
     <!-- Título e subtítulo -->
     <h1 class="text-center mt-5">Minhas senhas</h1>
     <h2 class="text-center">Aqui você pode ver as senhas cadastradas no seu nome.</h2>
-    
+
     <!-- Tabela com as senhas do usuário -->
     <?php require_once("../Controller/tabelaSuasSenhas.php"); ?>
 
@@ -75,4 +75,5 @@ if (!isset($_SESSION['rg'])) {
         });
     </script>
 </body>
+
 </html>

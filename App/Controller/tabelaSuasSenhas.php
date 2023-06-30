@@ -16,7 +16,7 @@ $senhasUsuario = (new ControllerSenha())->listUserPasswords($_SESSION['idUsuario
 <?php
 if (is_array($senhasUsuario)) {
     ?>
-    <div class="container mt-5 mb-5">
+    <div class="container mt-5 mb-5" style="padding-bottom: 70px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="table-responsive">

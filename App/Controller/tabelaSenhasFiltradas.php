@@ -27,7 +27,7 @@ $senhas = (new ControllerSenha())->listPasswords($_POST);
 <?php if (is_array($senhas)) { ?>
     <h1 class="text-center mt-2">Escolha sua senha</h1>
     <h2 class="text-center">Aqui você poderá escolher senhas para o curso desejado.</h2>
-    <div class="container d-flex justify-content-center align-items-center mt-3 mb-5">
+    <div class="container d-flex justify-content-center align-items-center mt-3 mb-5" style="padding-bottom: 70px;">
 
         <table id="example" class="table table-striped table-bordered">
             <thead>

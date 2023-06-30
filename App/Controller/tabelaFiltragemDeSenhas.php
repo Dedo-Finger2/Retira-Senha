@@ -24,7 +24,7 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
     </div>
 
 <!-- Formulário de filtragem -->
-<div class="container" style="height: 85vh">
+<div class="container" style="padding-bottom: 70px;">
     <div class="row d-flex justify-content-center align-items-center mb-5 mt-5">
         <div class="col-md-6">
             <div class="card">
