@@ -22,6 +22,8 @@ $senhas = (new ControllerSenha())->listPasswords($_POST);
 
 ?>
 
+<?php if (is_array($senhas)) { ?>
+
 <div class="container d-flex justify-content-center mt-5 align-items-center">
     <table id="example" class="table table-striped table-bordered">
         <thead>
@@ -47,7 +49,7 @@ $senhas = (new ControllerSenha())->listPasswords($_POST);
                 <td><?= $senha->nome_curso ?></td>
                 <td>
                     <form action="../Controller/senhaHandler.php" method="post">
-                        <select name="senha">
+                        <select class="form-select" name="senha">
                             <?php foreach (explode(', ', $senha->senhas) as $senhaOpcao) { ?> <!-- Divide as senhas que são uma string com todas elas separadas por vírgula -->
                                 <option value="<?= $senhaOpcao; ?>"><?= $senhaOpcao; ?></option> <!-- Senhas -->
                             <?php } ?>
@@ -80,3 +82,4 @@ $senhas = (new ControllerSenha())->listPasswords($_POST);
         </tr>
     </tfoot>
 </table>
+<?php } else { echo "<h3 class='text-center mt-5'>Nenhuma senha encontrada com os filtros aplicados! <a href='filtragemDeSenhas.php'>Tente novamente</a>.</h3>"; } ?>

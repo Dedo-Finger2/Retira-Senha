@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Model; // "Namespace da classe (localização dela)" - Greg
+
 use CoffeeCode\DataLayer\DataLayer; // "Chamando a classe Datalayer para servir como herança para a classe Senha" - Greg
 use CoffeeCode\DataLayer\Connect;
 
@@ -8,7 +9,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
 {
     private $conn;
 
-     /**
+    /**
      * Construtor base, toda classe vai ter um igual
      * 
      * [ Estrutura ]
@@ -39,7 +40,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
          * A $clausulas_like guarda toda a verificação feita para cada dia selecionado, e então é feito um junção de cada validação em $clausulas_like separando elas com a palavra AND
          * dessa forma formando uma super verificação com todos os dias e seperando cada verificação com um AND para então ser usado na query.
          */
-        if ($dias_aula) {
+        if (!empty($dias_aula)) {
             $clausulas_like = array();
             foreach ($dias_aula as $dia) {
                 $clausulas_like[] = "turma.dias_de_aula LIKE '%$dia%' OR turma.dias_de_aula LIKE '%" . substr($dia, 0, 3) . "%'";
@@ -81,15 +82,15 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
             ");
 
             return $queryComDiasDeAula->fetchAll();
-        }
+        } else {
 
-        /**
-         * Query sem os dias da semana selecionado
-         * Nessa query são feitas todas as fitragens necessárias e requisitadas pelo usuário
-         * na tela de filtragem de senhas. As fitragens são feitas com variáveis PHP
-         * inseridas em clausulas WHERE e AND para verificar exatamente oq o usuário pediu
-         */
-        $querySemDiasDeAula = $this->conn->query("SELECT 
+            /**
+             * Query sem os dias da semana selecionado
+             * Nessa query são feitas todas as fitragens necessárias e requisitadas pelo usuário
+             * na tela de filtragem de senhas. As fitragens são feitas com variáveis PHP
+             * inseridas em clausulas WHERE e AND para verificar exatamente oq o usuário pediu
+             */
+            $querySemDiasDeAula = $this->conn->query("SELECT 
         turma.nome_turma, 
         modulo.situacao_modulo,
         curso.nome_curso,
@@ -115,7 +116,8 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
         GROUP BY turma.nome_turma
         ");
 
-        return $querySemDiasDeAula->fetchAll();
+            return $querySemDiasDeAula->fetchAll();
+        }
     }
 
     /**
@@ -178,7 +180,7 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
 
         return $senhaDevolvida;
     }
-    
+
     /**
      * Esse método será responsável por permitir o usuário pegar uma senha para si,
      * esse método vai garantir o usuário seja dono da senha que quis pegar, podemos mudar

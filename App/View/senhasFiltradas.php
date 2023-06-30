@@ -36,36 +36,39 @@
             <h2 class="text-center">Aqui você poderá escolher senhas para o curso desejado.</h2>
             <?php require_once("../Controller/tabelaSenhasFiltradas.php") ?>
         </div>
-        <?php require_once("footer.php");?>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
-	<!-- Script para inicializar o DataTable -->
-	<script>
-		$(document).ready(function() {
-			$('#example').DataTable({
-				"paging": true,
-				"lengthChange": false,
-				"searching": true,
-				"ordering": true,
-				"info": true,
-				"autoWidth": false,
-				"lengthMenu": [[7, 25, 50, -1], [10, 25, 50, "Mostrar tudo"]],
-				"language": {
-					"search": "Pesquisar:",
-					"paginate": {
-						"previous": "Anterior",
-						"next": "Próximo"
-					},
-					"info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
-					"infoEmpty": "Mostrando 0 a 0 de 0 registros",
-					"infoFiltered": "(filtrado de _MAX_ registros no total)"
-				}
-			});
 
-			// Adiciona classe btn-3d aos botões de anterior e próximo do paginador
-			$('.paginate_button.previous, .paginate_button.next').addClass('btn-3d');
-		});
-    </script>
+        <!-- FOOTER -->
+        <?php require_once("footer.php");?>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
+        <!-- Script para inicializar o DataTable -->
+        <script>
+            $(document).ready(function() {
+                $('#example').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "lengthMenu": [[5, 25, 50, -1], [10, 25, 50, "Mostrar tudo"]],
+                    "language": {
+                        "search": "Pesquisar:",
+                        "paginate": {
+                            "previous": "Anterior",
+                            "next": "Próximo"
+                        },
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                        "infoEmpty": "Mostrando 0 a 0 de 0 registros",
+                        "infoFiltered": "(filtrado de _MAX_ registros no total)"
+                    }
+                });
+
+                // Adiciona classe btn-3d aos botões de anterior e próximo do paginador
+                $('.paginate_button.previous, .paginate_button.next').addClass('btn-3d');
+            });
+        </script>
     </body>
 </html>
