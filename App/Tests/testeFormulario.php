@@ -14,19 +14,16 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <div class="rounded d-flex align-items-center justify-content-center">
-        <img src="../Public/img/Logo-texto-preto.png" class="mt-5" style="width: 150px;" alt="Placeholder image">
-    </div>
-<div class="container" style="height: 85vh">
-    <div class="row d-flex justify-content-center align-items-center mb-5 mt-5">
+
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="text-center mt-1 mb-4">Vagas disponíveis</h1>
-                    <h2 class="text-center mt-3 mb-4">Aqui você poderá filtrar as senhas que deseja visualizar.</h2>
+                    <h1>Senhas disponiveis</h1>
                     <form action="senhasFiltradas.php" method="post">
                         <div class="form-floating mb-3">
-                            <select class="form-select" id="turno" name="turno" required>
+                            <select required class="form-select" id="turno" name="turno">
                                 <option selected disabled>Selecione o turno</option>
                                 <?php
                                 foreach ($turnos as $turno) {
@@ -42,7 +39,7 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
                         <div class="form-group mb-3">
                             <label for="faixa-etaria">Faixa etária</label>
                             <div class="d-flex">
-                                <select class="form-select me-2" id="idade-inicio" name="idadeMinima" required>
+                                <select class="form-select me-2" id="idade-inicio" name="idade-inicio">
                                     <option selected disabled>Início</option>
                                     <?php
                                     foreach ($idadeMinima as $idade) {
@@ -53,7 +50,7 @@ $idadeMaxima = (new ControllerTurma())->getIdadesMaximas();
                                     ?>
                                 </select>
                                 <span class="align-self-center">-</span>
-                                <select class="form-select ms-2" id="idade-fim" name="idadeMaxima" required>
+                                <select class="form-select ms-2" id="idade-fim" name="idade-fim">
                                     <option selected disabled>Fim</option>
                                     <?php
                                     foreach ($idadeMaxima as $idade) {

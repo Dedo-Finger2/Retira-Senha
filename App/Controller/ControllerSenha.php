@@ -7,54 +7,54 @@ use Exception; // "Chamando as exeções (padrão do PHP) para tratar de erros m
 
 class ControllerSenha
 {
-/**
- * Esse método vai fazer validações e listar as senhas filtradas para o usuário
- * Deve ser feito uma verificação se existe o array $data['dias'], se sim então
- * o usuário escolheu dias específicos para as senhas. Se não, usar null no lugar do array.
- * 
- * [DETALHE]: Parece que está com erro esse método, mas ele está funcionando perfeitamente
- * o erro é apenas porque nem todas as saídas do método retornam um array como deveria retornar
- * @param array $data - $_POST vindo de um formulário
- * @return mixed - Lista com as senhas filtradas ou um valor nulo
- */
-public function listPasswords($data)
-{
     /**
-     * Tentando fazer tudo, se der qualquer probleminha, guardar isso numa variável
-     * do tipo Execption e mostrar na tela a mensagem de erro
+     * Esse método vai fazer validações e listar as senhas filtradas para o usuário
+     * Deve ser feito uma verificação se existe o array $data['dias'], se sim então
+     * o usuário escolheu dias específicos para as senhas. Se não, usar null no lugar do array.
+     * 
+     * [DETALHE]: Parece que está com erro esse método, mas ele está funcionando perfeitamente
+     * o erro é apenas porque nem todas as saídas do método retornam um array como deveria retornar
+     * @param array $data - $_POST vindo de um formulário
+     * @return mixed - Lista com as senhas filtradas ou um valor nulo
      */
-    try {
+    public function listPasswords($data)
+    {
         /**
-         * Se existir o array $data['dias'], então fazer retornar os resultados
-         * usando ele
-         * Senão, passar null no lugar dele e retornar dessa forma
+         * Tentando fazer tudo, se der qualquer probleminha, guardar isso numa variável
+         * do tipo Execption e mostrar na tela a mensagem de erro
          */
-        if (isset($data['dias'])) {
-            $senhas = (new ModelSenha())->listFilteredPasswords(
-                $data['turno'],
-                $data['idadeMinima'],
-                $data['idadeMaxima'],
-                $data['dias']
-            );
-        } elseif (!isset($data['dias'])) {
-            $senhas = (new ModelSenha())->listFilteredPasswords(
-                $data['turno'],
-                $data['idadeMinima'],
-                $data['idadeMaxima'],
-                null
-            );
-        }
+        try {
+            /**
+             * Se existir o array $data['dias'], então fazer retornar os resultados
+             * usando ele
+             * Senão, passar null no lugar dele e retornar dessa forma
+             */
+                if (isset($data['dias'])) {
+                    $senhas = (new ModelSenha())->listFilteredPasswords(
+                        $data['turno'],
+                        $data['idadeMinima'],
+                        $data['idadeMaxima'],
+                        $data['dias']
+                    );
+                } elseif (!isset($data['dias'])) {
+                    $senhas = (new ModelSenha())->listFilteredPasswords(
+                        $data['turno'],
+                        $data['idadeMinima'],
+                        $data['idadeMaxima'],
+                        null
+                    );
+                }
+        
+            if (!empty($senhas)) {
+                return $senhas;
+            } else {
+                return null;
+            }
 
-        if (!empty($senhas)) {
-            return $senhas;
-        } else {
-            return null;
+        } catch (Exception $e) {
+            echo "Erro:" . $e->getMessage();
         }
-
-    } catch (Exception $e) {
-        echo "Erro:" . $e->getMessage();
     }
-}
 
     /**
      * Esse método vai fazer validações e retornar apenas as senhas que pertencem
@@ -88,7 +88,7 @@ public function listPasswords($data)
                 }
             }
         } catch (Exception $e) {
-            echo "Erro: ". $e->getMessage();
+            echo "Erro: " . $e->getMessage();
         }
     }
 
@@ -116,7 +116,7 @@ public function listPasswords($data)
                 return $senhaSelecionada;
             }
         } catch (Exception $e) {
-            echo "Erro: ". $e->getMessage();
+            echo "Erro: " . $e->getMessage();
         }
     }
 }
