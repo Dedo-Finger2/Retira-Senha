@@ -20,12 +20,10 @@ if (is_array($senhasUsuario)) {
     <table id="example" class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Nome do cidadão</th>
-                <th>Posição</th>
-                <th>Escritório (Local)</th>
-                <th>Idade</th>
-                <th>Data de início</th>
-                <th>Salário</th>
+                <th>Senha</th>
+                <th>Validade</th>
+                <th>Curso</th>
+                <th>Opções</th>
             </tr>
         </thead>
         <tbody>
@@ -54,43 +52,11 @@ if (is_array($senhasUsuario)) {
         </tbody>
         <tfoot>
             <tr>
-                <th>Nome do cidadão</th>
-                <th>Posição</th>
-                <th>Escritório (Local)</th>
-                <th>Idade</th>
-                <th>Data de início</th>
-                <th>Salário</th>
+                <th>Senha</th>
+                <th>Validade</th>
+                <th>Curso</th>
+                <th>Opções</th>
             </tr>
         </tfoot>
     </table>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
-	<!-- Script para inicializar o DataTable -->
-	<script>
-		$(document).ready(function() {
-			$('#example').DataTable({
-				"paging": true,
-				"lengthChange": false,
-				"searching": true,
-				"ordering": true,
-				"info": true,
-				"autoWidth": false,
-				"lengthMenu": [[7, 25, 50, -1], [10, 25, 50, "Mostrar tudo"]],
-				"language": {
-					"search": "Pesquisar:",
-					"paginate": {
-						"previous": "Anterior",
-						"next": "Próximo"
-					},
-					"info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
-					"infoEmpty": "Mostrando 0 a 0 de 0 registros",
-					"infoFiltered": "(filtrado de _MAX_ registros no total)"
-				}
-			});
-
-			// Adiciona classe btn-3d aos botões de anterior e próximo do paginador
-			$('.paginate_button.previous, .paginate_button.next').addClass('btn-3d');
-		});
-    </script>
 <?php } ?>

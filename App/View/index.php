@@ -19,6 +19,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="../Public/Css/customBootstrap.css">
+        <!-- Incluindo o DataTables -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="../Public/Css/customBootstrap.css">
         <title>Minhas senhas</title>
         <!--NAVBAR PROVISÓRIA-->
         <?php require_once("finalNavbar.php"); ?>
@@ -31,5 +34,34 @@
 
         <!-- Footer -->
         <?php require_once ("footer.php"); ?>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
+        <!-- Script para inicializar o DataTable -->
+        <script>
+            $(document).ready(function() {
+                $('#example').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "lengthMenu": [[7, 25, 50, -1], [10, 25, 50, "Mostrar tudo"]],
+                    "language": {
+                        "search": "Pesquisar:",
+                        "paginate": {
+                            "previous": "Anterior",
+                            "next": "Próximo"
+                        },
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                        "infoEmpty": "Mostrando 0 a 0 de 0 registros",
+                        "infoFiltered": "(filtrado de _MAX_ registros no total)"
+                    }
+                });
+
+                // Adiciona classe btn-3d aos botões de anterior e próximo do paginador
+                $('.paginate_button.previous, .paginate_button.next').addClass('btn-3d');
+            });
+        </script>
     </body>
 </html>
