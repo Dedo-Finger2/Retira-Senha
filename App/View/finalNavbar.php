@@ -12,7 +12,7 @@ use App\Controller\ControllerCadastro;
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-nosso-azul border-bottom border-bottom-dark" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">Retira Senha</a> <!-- Logo -->
+        <a class="navbar-brand" href="index.php"><strong>Retira Senha</strong></a> <!-- Logo -->
 
         <!-- Botão pra abrir e fechar ela quando estiver muito pequena a tela -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -23,10 +23,10 @@ use App\Controller\ControllerCadastro;
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Minhas senhas</a>
+                    <a class="nav-link active" aria-current="page" href="index.php"><strong>Minhas senhas</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="filtragemDeSenhas.php">Vagas disponiveis</a>
+                    <a class="nav-link active" href="filtragemDeSenhas.php"><strong>Vagas disponiveis</strong></a>
                 </li>
             </ul>
 
@@ -34,7 +34,7 @@ use App\Controller\ControllerCadastro;
             <div class="text-white me-3">
                 <?php
                     if ($usuario) {
-                        echo "<strong>".$usuario."</strong>";
+                        echo "<i class='fa-solid fa-user'></i> <strong>".$usuario."</strong>";
                     } else {
                         echo "Usuário";
                     }
@@ -42,7 +42,7 @@ use App\Controller\ControllerCadastro;
             </div>
             <!-- Log-off -->
             <form action="../Controller/cadastroHandler.php" method="post">
-                <button type="submit" class="btn btn-danger">Log-off</button>
+                <button type="submit" class="btn btn-danger"><strong>Log-off</strong></button>
             </form>
             <!-- O action desse formulário tem que ir para o Controller/cadastroHandler.php -->
         </div>
@@ -52,3 +52,4 @@ use App\Controller\ControllerCadastro;
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/85b090ab76.js" crossorigin="anonymous"></script>

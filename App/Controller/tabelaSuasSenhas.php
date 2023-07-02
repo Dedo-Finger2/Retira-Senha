@@ -42,7 +42,7 @@ if (is_array($senhasUsuario)) {
                                         <?= $senha->nome_curso ?> <!-- Nome do curso que a senha se refere -->
                                     </td>
                                     <td class="text-center">
-                                        <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        <a class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
                                             data-bs-custom-class="custom-tooltip"
                                             data-bs-title="Remove a senha da sua lista de senhas cadastradas."
                                             href="../Controller/senhaHandler.php?devolverSenha=<?= $senha->cod_senha ?>">Devolver senha</a>
@@ -67,7 +67,7 @@ if (is_array($senhasUsuario)) {
                     <div class="card-body">
                         <h4 class="card-title text-center">Botão 'devolver senha'</h4>
                         <p class="card-text">
-                            <a class="btn btn-danger d-flex justify-content-center disabled" href="#">Devolver senha</a>
+                            <a class="btn btn-primary d-flex justify-content-center disabled" href="#">Devolver senha</a>
                             Este botão irá remover a senha da linha em que se encontra, fazendo com que ela seja removida da
                             sua lista de senhas cadastradas. No entanto, você pode coletá-la novamente na tela de 'Vagas
                             disponíveis', caso deseje.

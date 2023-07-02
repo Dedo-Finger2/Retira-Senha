@@ -8,7 +8,7 @@
   <div class="container-fluid">
     <div class="text-center p-3 text-light">
       © 2023 Copyright:
-      <a class="text-light" href="index.php">Retira Senha</a>
+      <a class="text-light" href="https://github.com/Dedo-Finger2/Retira-Senha">Retira Senha on GitHub</a>
       <!-- Copyright -->
     </div>
   </div>
