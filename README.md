@@ -1,31 +1,69 @@
-# Retira-Senha
+<h1 align="center"> 
+  <img alt="Logo" src="App/Public/img/Logo-completa.png" style="width: 200px;"> 
+</h1>
 
-## Sobre o projeto
+<div align="center"> 
 
-Interface com banco de dados integrado com o objetivo de diminuir a fila presencial na Cidade do Saber. A página inicial do nosso sistema está localizada no seguinte caminho: App/View/index.php.
+![Em desenvolvimento](https://img.shields.io/badge/Status-Done-green)  [![Licença GPL v3](https://img.shields.io/badge/Licen%C3%A7a-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.pt-br.html)
 
-## Banco de dados local
+</div>
 
-Para que você possa testar o sistema por si mesmo vai ser necessário ter um servidor local instalado em sua máquina. A equipe de desenvolvimento recomenda fortemente o uso do XAMPP como servidor local.
-Após isso, você deverá gerar o banco de dados localmente na sua máquina, para isso o projeto consta com o banco de dados completo e pode ser encontrado na pasta Sql/ do projeto. A ordem de execução dos arquivos é esta: 
+<p align="center"> 
+  <a href="#sobre">Sobre</a> • 
+  <a href="#instrucoes">Instruções</a> •
+  <a href="#autoria">Autoria</a> •
+  <a href="#licencas">Licenças</a> • 
+  <a href="#requisitos">Requisitos do Sistema</a> 
+</p>
 
-dump.sql > 15_06_2023.sql > 16_06_2023.sql. 
+<h2 id="sobre">📝 Sobre</h2>
 
-Certifique-se de remover os comenários encontrados no código dos arquivos citados anteriormente.
+Este é um sistema de interface com banco de dados integrado com o objetivo de diminuir a fila presencial na Cidade do Saber. A página inicial do sistema está localizada no seguinte caminho: **App/View/index.php**
 
-## Como logar no sistema?
+<h2 id="requisitos">📑 Requisitos do Sistema</h2>
 
-Nosso sistema consta com um sistema de autenticação e segurança que vai impedir você usuário de ter acesso a menos que tenha um cadastro no banco da dados. Acesse a página de login e então clique em 'não possuo conta' para que seja possível efetuar um cadastro, após se cadastrar você vai ser direcionado para a tela de login, onde precisará preencher as informações de cadastro e então ter acesso ao sistema.
+- Validação de credenciais do usuário;
+- Filtragem de senhas disponíveis;
+- Exibição das senhas correspondentes aos cursos escolhidos;
+- Cadastro de novos usuários;
+- Interface amigável;
+- Segurança;
+- Escalabilidade;
+- Notificações e alertas compreensíveis aos usuários.
 
-## Como retirar senha?
+<h2 id="instrucoes">🔐 Instruções</h2>
 
-Para retirar as senhas será necessário acessar o sistema e então ir na aba 'Vagas disponíveis' encontrada na barra de navegação do sistema. Nesse tela você usuário vai poder escolher algumas opções para obter uma senha que atenda dsuas necessidades. Ao aplicar os filtros você será redirecionado a uma tela com as senhas que correspondem as especifícações ditas na tela anterior. 
+Nosso sistema conta com um sistema de autenticação e segurança que impede o acesso de usuários que não estejam cadastrados no banco de dados. Acesse a página de login e clique em 'não possuo conta' para efetuar um cadastro. Após se cadastrar, você será direcionado para a tela de login, onde precisará preencher as informações de cadastro para ter acesso ao sistema.
 
-Na tabela com as senhas correspondentes você verá um caixinha de seleção, nesse caixa de seleção você pode selecionar qual senha daquela turma você gostaria de obter, algumas turmas possuem mais deu ma senha disponível, então fica a sua escolha qual das senhas quer obter. Após deixar marcado a senha que deseja basta apenas apertar no botão 'Escolher senha' e a mesma será cadastrada no seu nome e poderá ser encontrada agora na tela 'Minhas senhas' (nessa tela você pode também devolver a senha caso tenha esoclhido errado).
+<h3>🔑 Como retirar senha?</h3>
 
-## Equipe de desenvolvimento
+Para retirar senhas, é necessário acessar o sistema e ir na aba 'Vagas disponíveis' encontrada na barra de navegação. Nessa tela, o usuário pode escolher algumas opções para obter uma senha que atenda suas necessidades. Ao aplicar os filtros, o usuário será redirecionado a uma tela com as senhas que correspondem às especificações definidas na tela anterior.
+
+Na tabela com as senhas correspondentes, há uma caixa de seleção que permite ao usuário escolher qual senha daquela turma deseja obter. Algumas turmas possuem mais de uma senha disponível, então cabe ao usuário decidir qual das senhas deseja obter. Após selecionar a senha, basta clicar no botão 'Escolher senha' e a mesma será cadastrada em seu nome, podendo ser encontrada na tela 'Minhas senhas' (onde também é possível devolver a senha caso tenha escolhido a errada).
+
+<h3>💾 Banco de dados</h3>
+
+Para testar o sistema em sua própria máquina, é necessário ter um servidor local instalado. A equipe de desenvolvimento recomenda o uso do XAMPP como servidor local.
+
+Após isso, é preciso gerar o banco de dados localmente na sua máquina, para isso o projeto contém o banco de dados completo, que pode ser encontrado na pasta Sql/ do projeto. A ordem de execução dos arquivos é a seguinte:
+
+**dump.sql > 15_06_2023.sql > 16_06_2023.sql**
+
+Certifique-se de remover os comentários encontrados no código dos arquivos mencionados acima.
+
+<h2 id="autoria">🖊️ Autoria</h2>
+
+<p align="center"> 
+  <img alt="Logo" src="https://logodownload.org/wp-content/uploads/2019/08/senai-logo-1.png" style="width: 150px;"> 
+</p> 
+
+<p align="center"><strong>Turma G82893 Senai Camaçari - BA | Técnico em Desenvolvimento de Sistemas</strong></p>
 
 - Antonio Mauricio (Back-end)
 - Joice Almeida (Front-end)
 - Leone Govea (Front-end)
 - Wendson Ferreira (Front-end)
+
+<h2 id="licencas">📜 Licença</h2>
+
+Este projeto está sob a licença GNU GPL v3.
