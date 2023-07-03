@@ -49,7 +49,7 @@ if (!isset($_SESSION['rg'])) {
             $idSenha = $_GET['idSenha'];
             ?>
             <h3 class="text-center"><a href="../Controller/senhaHandler.php?senhaReverter=<?= $idSenha ?>"
-                    class="btn btn-primary">Reverter senha: <?= $idSenha ?></a></h3>
+                    class="btn btn-primary">Recuperar senha: <?= $idSenha ?></a></h3>
             <?php
         }
     ?>
