@@ -15,9 +15,11 @@ use App\Controller\ControllerSenha;
 if (isset($_POST['acao'])) {
 
     switch ($_POST['acao']) {
-        case 'claimPassword': // Se o usuário quiser pegar uam senha...
+        case 'claimPassword': // Se o usuário quiser pegar uma senha...
+            $senha = $_POST['senha'];
+            $idUsuario = $_POST['idUsuario'];
             $senhaSelecionada = (new ControllerSenha())->claimPassword($_SESSION['idUsuario'], $_POST['senha']);
-            header("Location: ../View/index.php?senhaObtida=true");
+            header("Location: ../View/index.php?senhaObtida=true&senha=$senha");
         break;
         
         default:

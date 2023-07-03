@@ -77,7 +77,7 @@ if (!isset($_SESSION['rg'])) {
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (<?php echo isset($_GET['senhaObtida']) ? 'true' : 'false'; ?>) {
-                window.alert('Senha obtida com sucesso!');
+                window.alert('Senha obtida com sucesso! \n\nSenha adquirida: <?= $_GET['senha'] ?>');
             } if (<?php echo isset($_GET['error']) ? 'true' : 'false'; ?>) {
                 window.alert('Ocorreu um erro!');
             }
