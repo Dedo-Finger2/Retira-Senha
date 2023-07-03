@@ -10,6 +10,7 @@ if (!isset($_SESSION['rg'])) {
     header('Location: login.php');
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,8 +37,22 @@ if (!isset($_SESSION['rg'])) {
     </div>
 
     <!-- Título e subtítulo -->
-    <h1 class="text-center mt-5">Minhas senhas</h1>
+    <h1 class="text-center mt-4">Minhas senhas</h1>
     <h2 class="text-center">Aqui você pode ver as senhas cadastradas no seu nome.</h2>
+    
+    <?php
+        /**
+         * Se o usuário devolveu uma senha, o sistema deve exibir o botão de reverter ação
+         * assim o usuário pode recuperar a senha devolvida na mesma hora
+         */
+        if (isset($_GET['reverter'])) {
+            $idSenha = $_GET['idSenha'];
+            ?>
+            <h3 class="text-center"><a href="../Controller/senhaHandler.php?senhaReverter=<?= $idSenha ?>"
+                    class="btn btn-primary">Reverter senha: <?= $idSenha ?></a></h3>
+            <?php
+        }
+    ?>
 
     <!-- Tabela com as senhas do usuário -->
     <?php require_once("../Controller/tabelaSuasSenhas.php"); ?>

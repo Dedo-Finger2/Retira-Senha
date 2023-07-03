@@ -17,7 +17,6 @@ if (isset($_POST['acao'])) {
     switch ($_POST['acao']) {
         case 'claimPassword': // Se o usuário quiser pegar uma senha...
             $senha = $_POST['senha'];
-            $idUsuario = $_POST['idUsuario'];
             $senhaSelecionada = (new ControllerSenha())->claimPassword($_SESSION['idUsuario'], $_POST['senha']);
             header("Location: ../View/index.php?senhaObtida=true&senha=$senha");
         break;
@@ -32,6 +31,14 @@ if (isset($_POST['acao'])) {
         case isset($_GET['devolverSenha']): // Se o usuário quiser devolver a senha...
             $idSenha = $_GET['devolverSenha'];
             $senhaDevolvida = (new ModelSenha())->returnPassword($idSenha);   
+            header("Location: ../View/index.php?reverter=true&idSenha=$idSenha");
+        break;
+        
+        case isset($_GET['senhaReverter']): // Se o usuário devolver uma senha...
+            /**
+             * Executar o método de pegar senha novamente com o ID do usuário e o ID da senha
+             */
+            $senhaRecuperada = (new ControllerSenha())->claimPassword($_SESSION['idUsuario'], $_GET['senhaReverter']);
             header("Location: ../View/index.php");
         break;
 

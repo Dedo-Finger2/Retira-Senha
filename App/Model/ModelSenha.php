@@ -192,21 +192,40 @@ class ModelSenha extends DataLayer // "Herdando funcionalidades da classe Datala
     public function claimPassword($idUsuario, $nomeSenha)
     {
         /**
-         * Encontra a senha pelo nome dela (autenticacao)
+         * Encontrando a senha pelo nome dela (autenticacao)
+         * se isso der resultado então a consulta deu certo, logo execute todo o resto do código
+         * Caso contrário, tentar procurar a senha com o ID dela, e então executar os mesmos passos pra cadastrar ela no
+         * nome do usuário atualmente logado no sistema
          */
         $senhaSelecionada = (new ModelSenha())->find("autenticacao = '$nomeSenha'")->fetch();
 
-        /**
-         * Então é atribuido à coluna cod_cadastro dela (um fk feito por nós) o id do usuário
-         * que pegou a senha
-         * e também a SITUACAO da senha é colocada como UTILIZADA
-         */
-        $senhaSelecionada->cod_cadastro = $idUsuario;
-        $senhaSelecionada->situacao = 'UTILIZADA';
+        if ($senhaSelecionada) {
+            /**
+             * Então é atribuido à coluna cod_cadastro dela (um fk feito por nós) o id do usuário
+             * que pegou a senha
+             * e também a SITUACAO da senha é colocada como UTILIZADA
+             */
+            $senhaSelecionada->cod_cadastro = $idUsuario;
+            $senhaSelecionada->situacao = 'UTILIZADA';
 
-        $senhaSelecionada->save(); // Salvando modificações no banco
+            $senhaSelecionada->save(); // Salvando modificações no banco
 
-        return $senhaSelecionada;
+            return $senhaSelecionada;
+        } else {
+            $senhaSelecionada = (new ModelSenha())->find("cod_senha = $nomeSenha")->fetch();
+
+            /**
+             * Então é atribuido à coluna cod_cadastro dela (um fk feito por nós) o id do usuário
+             * que pegou a senha
+             * e também a SITUACAO da senha é colocada como UTILIZADA
+             */
+            $senhaSelecionada->cod_cadastro = $idUsuario;
+            $senhaSelecionada->situacao = 'UTILIZADA';
+
+            $senhaSelecionada->save(); // Salvando modificações no banco
+
+            return $senhaSelecionada;
+        }
     }
 
     /**
