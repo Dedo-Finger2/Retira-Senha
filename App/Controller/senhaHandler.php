@@ -17,7 +17,7 @@ if (isset($_POST['acao'])) {
     switch ($_POST['acao']) {
         case 'claimPassword': // Se o usuário quiser pegar uam senha...
             $senhaSelecionada = (new ControllerSenha())->claimPassword($_SESSION['idUsuario'], $_POST['senha']);
-            header("Location: ../View/filtragemDeSenhas.php?senhaObtida=true");
+            header("Location: ../View/index.php?senhaObtida=true");
         break;
         
         default:

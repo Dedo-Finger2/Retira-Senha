@@ -43,15 +43,6 @@ if (!isset($_SESSION['rg'])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
             integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
             crossorigin="anonymous"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                if (<?php echo isset($_GET['senhaObtida']) ? 'true' : 'false'; ?>) {
-                    window.alert('Senha obtida com sucesso!');
-                } if (<?php echo isset($_GET['error']) ? 'true' : 'false'; ?>) {
-                    window.alert('Ocorreu um erro!');
-                }
-            });
-        </script>
 
         <!-- Footer -->
         <?php require_once ("footer.php"); ?>

@@ -74,6 +74,15 @@ if (!isset($_SESSION['rg'])) {
             $('.paginate_button.previous, .paginate_button.next').addClass('btn-3d');
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (<?php echo isset($_GET['senhaObtida']) ? 'true' : 'false'; ?>) {
+                window.alert('Senha obtida com sucesso!');
+            } if (<?php echo isset($_GET['error']) ? 'true' : 'false'; ?>) {
+                window.alert('Ocorreu um erro!');
+            }
+        });
+    </script>
 </body>
 
 </html>
