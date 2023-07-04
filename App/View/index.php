@@ -31,16 +31,17 @@ if (!isset($_SESSION['rg'])) {
 </head>
 
 <body>
-    <!-- Logo na página -->
-    <div class="rounded d-flex align-items-center justify-content-center">
-        <img src="../Public/img/Logo-texto-preto.png" class="mt-5" style="width: 150px;" alt="Placeholder image">
-    </div>
-
-    <!-- Título e subtítulo -->
-    <h1 class="text-center mt-4">Minhas senhas</h1>
-    <h2 class="text-center">Aqui você pode ver as senhas cadastradas no seu nome.</h2>
     
-    <?php
+        <!-- Logo na página -->
+        <div class="rounded d-flex align-items-center justify-content-center">
+            <img src="../Public/img/Logo-texto-preto.png" class="mt-5" style="width: 150px;" alt="Placeholder image">
+        </div>
+
+        <!-- Título e subtítulo -->
+        <h1 class="text-center mt-4">Minhas senhas</h1>
+        <h2 class="text-center">Aqui você pode ver as senhas cadastradas no seu nome.</h2>
+
+        <?php
         /**
          * Se o usuário devolveu uma senha, o sistema deve exibir o botão de reverter ação
          * assim o usuário pode recuperar a senha devolvida na mesma hora
@@ -52,52 +53,52 @@ if (!isset($_SESSION['rg'])) {
                     class="btn btn-primary">Recuperar senha: <?= $idSenha ?></a></h3>
             <?php
         }
-    ?>
+        ?>
 
-    <!-- Tabela com as senhas do usuário -->
-    <?php require_once("../Controller/tabelaSuasSenhas.php"); ?>
+        <!-- Tabela com as senhas do usuário -->
+        <?php require_once("../Controller/tabelaSuasSenhas.php"); ?>
 
-    <!-- Footer -->
-    <?php require_once("footer.php"); ?>
+        <!-- Footer -->
+        <?php require_once("footer.php"); ?>
 
-    <!-- Script para inicializar o DataTable -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "lengthMenu": [[5, 25, 50, -1], [10, 25, 50, "Mostrar tudo"]],
-                "language": {
-                    "search": "Pesquisar:",
-                    "paginate": {
-                        "previous": "Anterior",
-                        "next": "Próximo"
-                    },
-                    "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
-                    "infoEmpty": "Mostrando 0 a 0 de 0 registros",
-                    "infoFiltered": "(filtrado de _MAX_ registros no total)"
+        <!-- Script para inicializar o DataTable -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#example').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "lengthMenu": [[5, 25, 50, -1], [10, 25, 50, "Mostrar tudo"]],
+                    "language": {
+                        "search": "Pesquisar:",
+                        "paginate": {
+                            "previous": "Anterior",
+                            "next": "Próximo"
+                        },
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                        "infoEmpty": "Mostrando 0 a 0 de 0 registros",
+                        "infoFiltered": "(filtrado de _MAX_ registros no total)"
+                    }
+                });
+
+                // Adiciona classe btn-3d aos botões de anterior e próximo do paginador
+                $('.paginate_button.previous, .paginate_button.next').addClass('btn-3d');
+            });
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                if (<?php echo isset($_GET['senhaObtida']) ? 'true' : 'false'; ?>) {
+                    window.alert('Senha obtida com sucesso! \n\nSenha adquirida: <?= $_GET['senha'] ?>');
+                } if (<?php echo isset($_GET['error']) ? 'true' : 'false'; ?>) {
+                    window.alert('Ocorreu um erro!');
                 }
             });
-
-            // Adiciona classe btn-3d aos botões de anterior e próximo do paginador
-            $('.paginate_button.previous, .paginate_button.next').addClass('btn-3d');
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (<?php echo isset($_GET['senhaObtida']) ? 'true' : 'false'; ?>) {
-                window.alert('Senha obtida com sucesso! \n\nSenha adquirida: <?= $_GET['senha'] ?>');
-            } if (<?php echo isset($_GET['error']) ? 'true' : 'false'; ?>) {
-                window.alert('Ocorreu um erro!');
-            }
-        });
-    </script>
+        </script>
 </body>
 
 </html>

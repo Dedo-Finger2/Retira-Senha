@@ -108,5 +108,12 @@ $senhas = (new ControllerSenha())->listPasswords($_POST);
         <!-- Se não for um array, então não deu resultado algum a consulta, então mostra essa mensagem abaixo para o usuário -->
     <?php } else {
     echo "<h3 class='text-center mt-5'>Nenhuma senha encontrada com os filtros aplicados! <a href='filtragemDeSenhas.php'>Tente novamente</a>.</h3>";
+    echo 
+    "<style>
+        footer {
+            position: fixed;
+            bottom: 0;
+        }
+    </style>";
 } ?>
 </div>

@@ -91,5 +91,12 @@
             event.target.value = valorAtual;
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (<?php echo isset($_GET['jaCadastrado']) ?>) {
+                window.alert('Você já possui cadastro no nosso sistema! \nEfetue o Login usando seu Nome e RG ou seu Email e senha.');
+            }
+        });
+    </script>
 </body>
 </html>

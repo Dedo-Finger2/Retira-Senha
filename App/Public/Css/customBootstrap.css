@@ -1,6 +1,12 @@
 :root {
     --meu-azul: #455ac0;
 }
+
+html, body {
+  min-height: 100%;
+  height: 100%;
+}
+
 .bg-nosso-azul {
     background-color: var(--meu-azul);
     border-color: var(--meu-azul);
@@ -35,4 +41,20 @@
     .table-responsive td {
         padding: 0.5rem;
     }
+}
+
+/* Media query para telas com altura menor que 840px */
+@media screen and (max-height: 839px) {
+  .wrapper {
+    /* Define a altura mínima da página como 100% da altura da janela do navegador */
+    height: 100%;
+  }
+}
+
+/* Media query para telas com altura maior ou igual a 840px */
+@media screen and (min-height: 840px) {
+  .wrapper {
+    /* Define a altura da página como a altura da janela do navegador menos a altura do footer */
+    height: calc(100% - 100px);
+  }
 }

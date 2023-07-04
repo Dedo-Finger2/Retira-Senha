@@ -21,7 +21,7 @@ class ControllerCadastro
         $usuario = (new ModelCadastro())->find("email = '{$email}'")->fetch();
         if ($usuario) {
             //echo "Usuário já cadastrado";
-            header("Location: ../View/cadastro.php?msg=você já possui cadastro!");
+            header("Location: ../View/login.php?jaCadastrado=true");
             exit();
         }
 
