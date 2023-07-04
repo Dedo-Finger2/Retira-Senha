@@ -18,9 +18,9 @@ if (is_array($senhasUsuario)) {
     ?>
     <div class="container mt-5 mb-5" style="padding-bottom: 70px;">
         <div class="row justify-content-center">
-            <div class="col-md-8 col-sm-1">
+            <div class="col-md-8 col-sm-12">
                 <div class="table-responsive table-responsive-md">
-                    <table id="example" class="table table-striped table-bordered table-sm">
+                    <table id="example" class="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>Senha</th>

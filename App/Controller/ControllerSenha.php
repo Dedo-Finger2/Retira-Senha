@@ -12,8 +12,7 @@ class ControllerSenha
      * Deve ser feito uma verificação se existe o array $data['dias'], se sim então
      * o usuário escolheu dias específicos para as senhas. Se não, usar null no lugar do array.
      * 
-     * [DETALHE]: Parece que está com erro esse método, mas ele está funcionando perfeitamente
-     * o erro é apenas porque nem todas as saídas do método retornam um array como deveria retornar
+     * 
      * @param array $data - $_POST vindo de um formulário
      * @return mixed - Lista com as senhas filtradas ou um valor nulo
      */
@@ -59,6 +58,9 @@ class ControllerSenha
     /**
      * Esse método vai fazer validações e retornar apenas as senhas que pertencem
      * ao usuário logado no momento no sistema
+     * 
+     * [DETALHE]: Parece que está com erro esse método, mas ele está funcionando perfeitamente
+     * o erro é apenas porque nem todas as saídas do método retornam um array como deveria retornar
      * @param int $idUsuario - Id do usuário presente no sistema atualmente, dentro de uma
      * variável de sessão
      * @return array - Senahs do usuário
