@@ -18,9 +18,9 @@ if (is_array($senhasUsuario)) {
     ?>
     <div class="container mt-5 mb-5" style="padding-bottom: 70px;">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="table-responsive">
-                    <table id="example" class="table table-striped table-bordered">
+            <div class="col-md-8 col-sm-1">
+                <div class="table-responsive table-responsive-md">
+                    <table id="example" class="table table-striped table-bordered table-sm">
                         <thead>
                             <tr>
                                 <th>Senha</th>
@@ -33,19 +33,23 @@ if (is_array($senhasUsuario)) {
                             <?php foreach ($senhasUsuario as $senha) { ?>
                                 <tr>
                                     <td>
-                                        <?= $senha->autenticacao ?> <!-- Nome da senha -->
+                                        <?= $senha->autenticacao ?>
+                                        <!-- Nome da senha -->
                                     </td>
                                     <td>
-                                        <?= $senha->validade ?> <!-- Validade da senha -->
+                                        <?= $senha->validade ?>
+                                        <!-- Validade da senha -->
                                     </td>
                                     <td>
-                                        <?= $senha->nome_curso ?> <!-- Nome do curso que a senha se refere -->
+                                        <?= $senha->nome_curso ?>
+                                        <!-- Nome do curso que a senha se refere -->
                                     </td>
                                     <td class="text-center">
                                         <a class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
                                             data-bs-custom-class="custom-tooltip"
                                             data-bs-title="Remove a senha da sua lista de senhas cadastradas."
-                                            href="../Controller/senhaHandler.php?devolverSenha=<?= $senha->cod_senha ?>">Devolver senha</a>
+                                            href="../Controller/senhaHandler.php?devolverSenha=<?= $senha->cod_senha ?>">Devolver
+                                            senha</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -85,4 +89,4 @@ if (is_array($senhasUsuario)) {
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
-    <?php } ?>
+<?php } ?>

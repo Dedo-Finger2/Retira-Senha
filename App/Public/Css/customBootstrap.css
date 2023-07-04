@@ -35,3 +35,13 @@
     padding: 2px;
     bottom: 0;
   }
+
+  @media (max-width: 360px) {
+    .table-responsive table {
+        font-size: 12px;
+    }
+    .table-responsive th,
+    .table-responsive td {
+        padding: 0.5rem;
+    }
+}

@@ -41,6 +41,7 @@ use App\Controller\ControllerCadastro;
                 ?>
             </div>
             <!-- Log-off -->
+            <br>
             <form action="../Controller/cadastroHandler.php" method="post">
                 <button type="submit" class="btn btn-danger"><strong>Log-off</strong></button>
             </form>
