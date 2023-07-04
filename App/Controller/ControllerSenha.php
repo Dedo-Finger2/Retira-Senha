@@ -29,22 +29,22 @@ class ControllerSenha
              * usando ele
              * Senão, passar null no lugar dele e retornar dessa forma evitando aparecer warnnings pro usuário
              */
-                if (isset($data['dias'])) {
-                    $senhas = (new ModelSenha())->listFilteredPasswords(
-                        $data['turno'],
-                        $data['idadeMinima'],
-                        $data['idadeMaxima'],
-                        $data['dias']
-                    );
-                } elseif (!isset($data['dias'])) {
-                    $senhas = (new ModelSenha())->listFilteredPasswords(
-                        $data['turno'],
-                        $data['idadeMinima'],
-                        $data['idadeMaxima'],
-                        null
-                    );
-                }
-        
+            if (isset($data['dias'])) {
+                $senhas = (new ModelSenha())->listFilteredPasswords(
+                    $data['turno'],
+                    $data['idadeMinima'],
+                    $data['idadeMaxima'],
+                    $data['dias']
+                );
+            } elseif (!isset($data['dias'])) {
+                $senhas = (new ModelSenha())->listFilteredPasswords(
+                    $data['turno'],
+                    $data['idadeMinima'],
+                    $data['idadeMaxima'],
+                    null
+                );
+            }
+
             if (!empty($senhas)) {
                 return $senhas;
             } else {
