@@ -36,6 +36,9 @@
     bottom: 0;
   }
 
+  /**
+  * Responsividade para telas pequenas
+  */
   @media (max-width: 360px) {
     .table-responsive table {
         font-size: 12px;
