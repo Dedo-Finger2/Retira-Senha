@@ -109,3 +109,4 @@ $senhas = (new ControllerSenha())->listPasswords($_POST);
     <?php } else {
     echo "<h3 class='text-center mt-5'>Nenhuma senha encontrada com os filtros aplicados! <a href='filtragemDeSenhas.php'>Tente novamente</a>.</h3>";
 } ?>
+</div>

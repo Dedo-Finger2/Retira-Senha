@@ -41,6 +41,9 @@ if (!isset($_SESSION['rg'])) {
     <!-- Tabela -->
     <?php require_once("../Controller/tabelaSenhasFiltradas.php") ?>
 
+    <!-- FOOTER -->
+    <?php require_once("footer.php"); ?>
+
     <!-- Script para inicializar o DataTable -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
@@ -72,8 +75,5 @@ if (!isset($_SESSION['rg'])) {
             $('.paginate_button.previous, .paginate_button.next').addClass('btn-3d');
         });
     </script>
-
-    <!-- FOOTER -->
-    <?php require_once("footer.php"); ?>
 </body>
 </html>
