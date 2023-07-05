@@ -60,7 +60,6 @@ class ControllerCadastro
          */
         if ($data['rg']) {
             $usuario = (new ModelCadastro())->loginUser($data['nome'], $data['rg']);
-
             /**
              * Se esse login der certo, então inicie a sessão e armazene o RG do sujeito na sesão atual dele
              * e então mande ele pra tela de home e retorne o objeto
@@ -94,6 +93,8 @@ class ControllerCadastro
                 return $this;
             }
         }
+        
+        header("Location: ../View/login.php?credenciais=false");
 
         return $this;
     }
